@@ -7,6 +7,9 @@
 
 body {
     height: 100%;
+    margin: 0;
+    overflow-y: hidden;
+    padding: 0;
     vertical-align: top;
     width: 100%;
 }
