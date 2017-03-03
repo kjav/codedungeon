@@ -3,19 +3,26 @@
     <link rel='stylesheet' href='css/main.css'>
   </head>
   <body>
-
   <div class="gamePanel">
     <canvas id="demoCanvas" width="500" height="300"></canvas>
   </div>
 
   <div class="codingPanel">
-
+    <div id='editor'>
+      
+    </div>
   </div>
 
   </body>
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+ 
+  <!-- Script for code editor -->
+  <script src='lib/ace.js'></script>
+  <script src='js/editor.js'></script>
+
   <script src='js/main.js'></script>
+
   <script src="https://code.createjs.com/easeljs-0.8.2.min.js"></script>
   <script src='js/drawing.js'></script>
 </html>
