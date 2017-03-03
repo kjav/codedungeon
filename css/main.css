@@ -27,6 +27,12 @@ body {
     width: 59%;
 }
 
+#gameCanvas {
+    background: #34495e;
+    margin: 5px;
+    position: relative;
+}
+
 .codingPanel {
     background: #27ae60;
     display: inline-block;
