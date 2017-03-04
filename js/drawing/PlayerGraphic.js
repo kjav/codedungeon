@@ -9,7 +9,7 @@ function PlayerGraphic(x, y, animation) {
         var scale_factor = 4 * gridSize / frame.image.width
         
         var m = new createjs.Matrix2D();
-        m.translate(shape.x * gridSize - frame.rect.x, shape.y * gridSize - frame.rect.y);
+        m.translate(shape.x * gridSize - frame.rect.x * scale_factor, shape.y * gridSize - frame.rect.y * scale_factor);
         m.scale(scale_factor, scale_factor);
 
         shape.graphics = new createjs.Graphics()
@@ -23,8 +23,8 @@ function PlayerGraphic(x, y, animation) {
         var scale_factor = 4 * gridSize / frame.image.width
         
         var m = new createjs.Matrix2D();
-        m.translate(((1-t) * p_x + t * shape.x) * gridSize - frame.rect.x,
-                    ((1-t) * p_y + t * shape.y) * gridSize - frame.rect.y);
+        m.translate(((1-t) * p_x + t * shape.x) * gridSize - frame.rect.x * scale_factor,
+                    ((1-t) * p_y + t * shape.y) * gridSize - frame.rect.y * scale_factor);
         m.scale(scale_factor, scale_factor);
 
         shape.graphics = new createjs.Graphics()
