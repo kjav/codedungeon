@@ -16,7 +16,7 @@ body {
 }
 
 .gamePanel {
-    background: #2980b9;
+    background: #eee;
     display: inline-block;
     height: 100%;
     position: relative;
@@ -24,7 +24,6 @@ body {
 }
 
 #gameCanvas {
-    background: #34495e;
     bottom: 0;
     left: 0;
     margin: auto;
@@ -34,7 +33,6 @@ body {
 }
 
 .codingPanel {
-    background: #27ae60;
     display: inline-block;
     height: 100%;
     width: 40%;
