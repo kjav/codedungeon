@@ -23,9 +23,16 @@ function run_code() {
   }
 
   if (!user_error) {
-    level1Code();
-    player.execute();
-    $("#run").prop('disabled', true);
+    try {
+      level1Code();
+    } catch (e) {
+      user_error = true;
+    }
+
+    if (!user_error) {
+      player.execute();
+      $("#run").prop('disabled', true);
+    }
   }
 }
 
