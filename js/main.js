@@ -16,20 +16,22 @@ function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
   
   this.moveForward = function() {
-    //if tile blocked logic here
-    //else
     switch(orientation) {
       case FACING_NORTH:
-        graphic.y -= 1;
+        if (grid[graphic.x][graphic.y - 1].walkable)
+          graphic.y -= 1;
         break;
       case FACING_EAST:
-        graphic.x += 1;
+        if (grid[graphic.x + 1][graphic.y].walkable)
+          graphic.x += 1;
         break;
       case FACING_SOUTH:
-        graphic.y += 1;
+        if (grid[graphic.x][graphic.y + 1].walkable)
+          graphic.y += 1;
         break;
       case FACING_WEST:
-        graphic.x -= 1;
+        if (grid[graphic.x - 1][graphic.y].walkable)
+          graphic.x -= 1;
         break;
     }
   };
@@ -38,16 +40,20 @@ function Person(x, y, graphic) {
     //else
     switch(orientation) {
       case FACING_NORTH:
-        graphic.y += 1;
+        if (grid[graphic.x][graphic.y + 1].walkable)
+          graphic.y += 1;
         break;
       case FACING_EAST:
-        graphic.x -= 1;
+        if (grid[graphic.x - 1][graphic.y].walkable)
+          graphic.x -= 1;
         break;
       case FACING_SOUTH:
-        graphic.y -= 1;
+        if (grid[graphic.x][graphic.y - 1].walkable)
+          graphic.y -= 1;
         break;
       case FACING_WEST:
-        graphic.x += 1;
+        if (grid[graphic.x + 1][graphic.y].walkable)
+          graphic.x += 1;
         break;
     }
   };
