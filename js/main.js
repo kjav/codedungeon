@@ -24,28 +24,28 @@ function Person(x, y, graphic) {
         if (grid[graphic.x][graphic.y - 1].walkable)
         {
           graphic.y -= 1;
-          playerGraphic.gotoAndPlay("walkUp");
+          animation.gotoAndPlay("walkUp");
         }
         break;
       case FACING_EAST:
         if (grid[graphic.x + 1][graphic.y].walkable)
         {
           graphic.x += 1;
-          playerGraphic.gotoAndPlay("walkRight");
+          animation.gotoAndPlay("walkRight");
         }
         break;
       case FACING_SOUTH:
         if (grid[graphic.x][graphic.y + 1].walkable)
         {
           graphic.y += 1;
-          playerGraphic.gotoAndPlay("walkDown");
+          animation.gotoAndPlay("walkDown");
         }
         break;
       case FACING_WEST:
         if (grid[graphic.x - 1][graphic.y].walkable)
         {
           graphic.x -= 1;
-          playerGraphic.gotoAndPlay("walkLeft");
+          animation.gotoAndPlay("walkLeft");
         }
         break;
     }
@@ -58,28 +58,28 @@ function Person(x, y, graphic) {
         if (grid[graphic.x][graphic.y + 1].walkable)
         {
           graphic.y += 1;
-          playerGraphic.gotoAndPlay("walkDown");
+          animation.gotoAndPlay("walkDown");
         }
         break;
       case FACING_EAST:
         if (grid[graphic.x - 1][graphic.y].walkable)
         {
           graphic.x -= 1;
-          playerGraphic.gotoAndPlay("walkLeft");
+          animation.gotoAndPlay("walkLeft");
         }
         break;
       case FACING_SOUTH:
         if (grid[graphic.x][graphic.y - 1].walkable)
         {
           graphic.y -= 1;
-          playerGraphic.gotoAndPlay("walkUp");
+          animation.gotoAndPlay("walkUp");
         }
         break;
       case FACING_WEST:
         if (grid[graphic.x + 1][graphic.y].walkable)
         {
           graphic.x += 1;
-          playerGraphic.gotoAndPlay("walkRight");
+          animation.gotoAndPlay("walkRight");
         }
         break;
     }
@@ -88,23 +88,19 @@ function Person(x, y, graphic) {
     switch(orientation) {
       case FACING_NORTH:
         orientation = FACING_EAST;
-        animation = new createjs.Sprite(spriteSheet, "stopRight");
-        playerGraphic.changeAnimation(animation);
+        animation.gotoAndPlay("stopRight");
         break;
       case FACING_EAST:
         orientation = FACING_SOUTH;
-        animation = new createjs.Sprite(spriteSheet, "stopDown");
-        playerGraphic.changeAnimation(animation);
+        animation.gotoAndPlay("stopDown");
         break;
       case FACING_SOUTH:
         orientation = FACING_WEST;
-        animation = new createjs.Sprite(spriteSheet, "stopLeft");
-        playerGraphic.changeAnimation(animation);
+        animation.gotoAndPlay("stopLeft");
         break;
       case FACING_WEST:
         orientation = FACING_NORTH;
-        animation = new createjs.Sprite(spriteSheet, "stopUp");
-        playerGraphic.changeAnimation(animation);
+          animation.gotoAndPlay("stopUp");
         break;
     }
   };
@@ -112,23 +108,19 @@ function Person(x, y, graphic) {
     switch(orientation) {
       case FACING_NORTH:
         orientation = FACING_WEST;
-        animation = new createjs.Sprite(spriteSheet, "stopLeft");
-        playerGraphic.changeAnimation(animation);
+        animation.gotoAndPlay("stopLeft");
         break;
       case FACING_EAST:
         orientation = FACING_NORTH;
-        animation = new createjs.Sprite(spriteSheet, "stopUp");
-        playerGraphic.changeAnimation(animation);
+          animation.gotoAndPlay("stopUp");
         break;
       case FACING_SOUTH:
         orientation = FACING_EAST;
-        animation = new createjs.Sprite(spriteSheet, "stopRight");
-        playerGraphic.changeAnimation(animation);
+        animation.gotoAndPlay("stopRight");
         break;
       case FACING_WEST:
         orientation = FACING_SOUTH;
-        animation = new createjs.Sprite(spriteSheet, "stopDown");
-        playerGraphic.changeAnimation(animation);
+        animation.gotoAndPlay("stopDown");
         break;
     }
   };
