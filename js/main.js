@@ -278,11 +278,12 @@ function Commands(p) {
         break;
     }
 
+    playerGraphic.tween(prev_x, prev_y, 0);
+
     var startTime = window.performance.now();
     var render_interval = setInterval(function() {
       var time = (window.performance.now() - startTime) / frame_time;
       playerGraphic.tween(prev_x, prev_y, time);
-      stage.update();
     }, 16);
 
     var boundExecute = this.execute.bind(this);
@@ -290,8 +291,13 @@ function Commands(p) {
     setTimeout(function() {
       clearInterval(render_interval);
       playerGraphic.tween(prev_x, prev_y, 1);
-      stage.update();
       boundExecute()
     }, frame_time);
   };
+}
+
+function render() {
+  stage.update();
+
+  window.requestAnimationFrame(render);
 }
