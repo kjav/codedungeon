@@ -25,14 +25,17 @@
   <script src='js/main.js'></script>
   
 	<script>
-	  var p = new Person(1,1);
-    var player = new Commands(p)
+    function main() {
+      console.log(playerGraphic);
+	    var p = new Person(1, 1, playerGraphic);
+      var player = new Commands(p);
+    }
 	</script>
 
   <!-- Scripts for game panel -->
   <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
   <script src='js/drawing/map.js'></script>
   <script src='js/drawing/GridCell.js'></script>
-  <script src='js/drawing/drawing.js'></script>
   <script src='js/drawing/PlayerGraphic.js'></script>
+  <script src='js/drawing/drawing.js'></script>
 </html>

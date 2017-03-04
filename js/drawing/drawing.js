@@ -15,6 +15,8 @@ var manifest = [
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    addPlayer();
+    main();
     resizeCanvas();
     draw();
 }
@@ -25,7 +27,7 @@ function draw() {
 }
 
 function addPlayer() {
-    playerGraphic = new PlayerGraphic(4, 4, stage);
+    playerGraphic = new PlayerGraphic(1, 1, stage);
     stage.addChild(playerGraphic);
     // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
     stage.update();
@@ -57,7 +59,7 @@ function createGrid() {
         x = margin / 2;
     }
     stage.update();
-    addPlayer();
+    //addPlayer();
 }
 
 function getTexture(index) {
@@ -106,6 +108,5 @@ function resizeCanvas() {
 init();
 
 $(window).on('resize', function() {
-   console.log('woooohh');
    resizeGrid();
 });
