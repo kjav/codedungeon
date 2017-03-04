@@ -182,6 +182,20 @@ function Person(x, y, graphic) {
   };
 
   this.wait = function() {
+    switch(orientation) {
+      case FACING_NORTH:
+        playerGraphic.gotoAndPlay("stopUp");
+        break;
+      case FACING_EAST:
+        playerGraphic.gotoAndPlay("stopRight");
+        break;
+      case FACING_SOUTH:
+        playerGraphic.gotoAndPlay("stopDown");
+        break;
+      case FACING_WEST:
+        playerGraphic.gotoAndPlay("stopLeft");
+        break;
+    }
   };
   
   this.pickUp = function() {
@@ -224,6 +238,7 @@ function pushObject(x, y) {
 
 function Commands(p) {
   var commands = [];
+  var p = p;
  
   this.moveForward = function() {
      commands.push(MOVE_FORWARD);
@@ -252,6 +267,8 @@ function Commands(p) {
   this.execute = function(that) {
     console.log('Executing. c: ', commands);
     if (commands.length == 0) {
+      console.log("orientation" + p);
+      p.wait();
       p.getState();
 
       if (currentGoalCheck(currentState)) {

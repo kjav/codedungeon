@@ -11,6 +11,14 @@ var grid = [
 
 var stage; // MAIN STAGE
 
+
+function nextLevel() {
+    init();
+    readMessage(currentLevel["startingText"], function() {
+       $('.gameMessagePanel').delay(600).fadeOut();
+    });
+}
+
 function init() {
     stage = new createjs.Stage("gameCanvas");
     setLevel(currentLevelNumber);
@@ -21,10 +29,6 @@ function init() {
     });
     resizeCanvas();
     draw();
-}
-
-function nextLevel() {
-    init();
 }
 
 function draw() {
@@ -39,7 +43,7 @@ function setupGrid() {
 
 function addPlayer() {
       playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
-      playerGraphic.setGridPos(1, 1);
+      playerGraphic.setGridPos(currentState["startCoords"].x, currentState["startCoords"].y);
       stage.addChild(playerGraphic);
       stage.update();
 }
@@ -82,8 +86,6 @@ function resizeCanvas() {
     stage.canvas.height  = gridSize * 10;
     stage.canvas.width = gridSize * 10;
 }
-
-init();
 
 $(window).on('resize', function() {
    resizeGrid();
