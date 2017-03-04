@@ -279,7 +279,7 @@ function Commands(p) {
       }
 
 
-      $("#run").prop('disabled', false);
+      activateEditor();
       return;
     }
     
