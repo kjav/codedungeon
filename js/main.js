@@ -229,6 +229,14 @@ function Commands(p) {
     console.log('Executing. c: ', commands);
     if (commands.length == 0) {
       p.getState();
+
+      if (currentGoalCheck(currentState)) {
+        console.log('YAAAAAASSSHHH');
+      } else {
+        console.log('NOOOOOOOOOOPE');
+      }
+
+
       $("#run").prop('disabled', false);
       return;
     }

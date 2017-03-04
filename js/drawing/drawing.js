@@ -13,6 +13,7 @@ var stage; // MAIN STAGE
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    setLevel(currentLevelNumber);
     imageloader = new createjs.LoadQueue();
     imageloader.loadManifest(manifest);
     imageloader.addEventListener("complete", function() {

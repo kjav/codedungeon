@@ -15,12 +15,13 @@ var levels = {
         ],
        state: {
             GoalCoords: {
-                x: 5,
-                y: 5
+                x: 3,
+                y: 2
             }
         },
         checkGoal: function(state) {
-            return state[GoalCoords].x == playerGraphic.x && state[GoalCoords].x == playerGraphic.y;
+            console.log('GoalCoord x:' + state['GoalCoords'].x + ', GoalCoords y: ' + state['GoalCoords'].y);
+            return state['GoalCoords'].x == playerGraphic.gridX && state['GoalCoords'].y == playerGraphic.gridY;
         }
     }
 };
