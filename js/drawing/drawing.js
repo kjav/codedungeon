@@ -14,7 +14,15 @@ var grid = [
 var stage, loader; // easeljs variables
 var manifest = [
     { src: "http://i.imgur.com/c05eK8H.png", id: "stone" },
-    { src: "http://i.imgur.com/sGowEpM.jpg", id: "dirt" }
+    { src: "http://i.imgur.com/sGowEpM.jpg", id: "grass" },
+    { src: "http://i.imgur.com/J7Nu1qA.png", id: "wallleft" },
+    { src: "http://i.imgur.com/5MenRvj.png", id: "wallright" },
+    { src: "http://i.imgur.com/IbzT8H9.png", id: "walltop" },
+    { src: "http://i.imgur.com/AdOTDZv.png", id: "wallbottom" },
+    { src: "http://i.imgur.com/dm8gm0l.png", id: "walltopleft" },
+    { src: "http://i.imgur.com/jjsdNkc.png", id: "walltopright" },
+    { src: "http://i.imgur.com/chp4BDL.png", id: "wallbottomleft" },
+    { src: "http://i.imgur.com/HZYuTED.png", id: "wallbottomright" }
 ];
 
 function init() {
@@ -80,11 +88,35 @@ function changeTexture(x, y, textureString) {
 
 function getTexture(index) {
     switch (mapOne[index]) {
-        case 0: // dirt
-            return "dirt";
+        case 0: // grass
+            return "grass";
             break;
         case 1: // stone
             return "stone";
+            break;
+        case 2: // wallleft
+            return "wallleft";
+            break;
+        case 3: // wallright
+            return "wallright";
+            break;
+        case 4: // walltop
+            return "walltop";
+            break;
+        case 5: // wallbottom
+            return "wallbottom";
+            break;
+        case 6: // walltopleft
+            return "walltopleft";
+            break;
+        case 7: // walltopright
+            return "walltopright";
+            break;
+        case 8: // wallbottomleft
+            return "wallbottomleft";
+            break;
+        case 9: // wallbottomright
+            return "wallbottomright";
             break;
 
     }
@@ -92,10 +124,34 @@ function getTexture(index) {
 
 function getWalkable(index) {
     switch (mapOne[index]) {
-        case 0: // dirt
+        case 0: // grass
             return true;
             break;
         case 1: // stone
+            return false;
+            break;
+        case 2: // wallleft
+            return false;
+            break;
+        case 3: // wallright
+            return false;
+            break;
+        case 4: // walltop
+            return false;
+            break;
+        case 5: // wallbottom
+            return false;
+            break;
+        case 6: // walltopleft
+            return false;
+            break;
+        case 7: // walltopright
+            return false;
+            break;
+        case 8: // wallbottomleft
+            return false;
+            break;
+        case 9: // wallbottomright
             return false;
             break;
     }
