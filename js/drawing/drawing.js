@@ -54,8 +54,7 @@ function createGrid() {
         for (var j = 0; j < numCols; j++) {
             var textureName = getTexture(index);
             var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName), stage);
-            grid.push(cell);
-            grid[i].push(j);
+            grid[i].push(cell);
             x += gridSize;
             index++;
             stage.addChild(cell);
