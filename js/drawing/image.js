@@ -11,5 +11,5 @@ var manifest = [
     { src: "http://i.imgur.com/fEcUkgB.png", id: "walltopright" },
     { src: "http://i.imgur.com/S0ZZm1Z.png", id: "wallbottomleft" },
     { src: "http://i.imgur.com/gOYZx5N.png", id: "wallbottomright" },
-    { src: "http://i.imgur.com/qPr1A4l.png", id: "girlfront" }
+    { src: "http://i.imgur.com/gOYZx5N.png", id: "bluekey" }
 ];
