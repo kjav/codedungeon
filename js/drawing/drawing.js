@@ -15,6 +15,7 @@ var manifest = [
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    addPlayer();
     main();
     resizeCanvas();
     draw();
@@ -57,8 +58,10 @@ function createGrid() {
         y += gridSize;
         x = margin / 2;
     }
+    stage.addChild(playerGraphic);
+    playerGraphic.drawShape();
     stage.update();
-    addPlayer();
+    //addPlayer();
 }
 
 function getTexture(index) {
