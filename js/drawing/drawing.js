@@ -22,13 +22,18 @@ var manifest = [
     { src: "http://i.imgur.com/dm8gm0l.png", id: "walltopleft" },
     { src: "http://i.imgur.com/jjsdNkc.png", id: "walltopright" },
     { src: "http://i.imgur.com/chp4BDL.png", id: "wallbottomleft" },
-    { src: "http://i.imgur.com/HZYuTED.png", id: "wallbottomright" }
+    { src: "http://i.imgur.com/HZYuTED.png", id: "wallbottomright" },
+    { src: "http://i.imgur.com/qPr1A4l.png", id: "girlfront" }
 ];
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    loader = new createjs.LoadQueue();
+    loader.loadManifest(manifest);
+    loader.addEventListener("complete", function() {
     addPlayer();
-    main();
+      main();
+    });
     resizeCanvas();
     draw();
 }
@@ -38,21 +43,18 @@ function draw() {
     debugValues();
 }
 
-function addPlayer() {
-    playerGraphic = new PlayerGraphic(1, 1);
-    stage.addChild(playerGraphic);
-    // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
-    stage.update();
-}
-
 function setupGrid() {
-    loader = new createjs.LoadQueue();
-    loader.loadManifest(manifest);
     loader.addEventListener("complete", function() {
       createGrid();
     });
 }
 
+function addPlayer() {
+      playerGraphic = new PlayerGraphic(1, 1, loader.getResult("girlfront"));
+      stage.addChild(playerGraphic);
+      // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
+      stage.update();
+}
 function createGrid() {
     grid = [
         [], [], [], [], [],
