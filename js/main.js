@@ -13,7 +13,7 @@ var FACING_SOUTH = "South";
 var FACING_WEST = "West";
 
 // Time per animation in ms
-var frame_time = 50;
+var frame_time = 200;
 
 function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
@@ -190,7 +190,8 @@ function Commands(p) {
   this.execute = function(that) {
     console.log('Executing. c: ', commands);
     if (commands.length == 0) {
-      p.getState(); 
+      p.getState();
+      $("#run").prop('disabled', false);
       return;
     }
     

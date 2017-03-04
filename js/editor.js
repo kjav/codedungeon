@@ -14,6 +14,7 @@ function run_code() {
   console.log(window.eval(editor.getValue()));
   level1Code();
   player.execute();
+  $("#run").prop('disabled', true);
 }
 
 // Add ctrl-enter keybinding for running code
