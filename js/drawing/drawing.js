@@ -13,6 +13,7 @@ var stage; // MAIN STAGE
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    setLevel(currentLevelNumber);
     imageloader = new createjs.LoadQueue();
     imageloader.loadManifest(manifest);
     imageloader.addEventListener("complete", function() {
@@ -33,10 +34,9 @@ function setupGrid() {
 }
 
 function addPlayer() {
-      playerGraphic = new PlayerGraphic(boySpriteSheet, "walkLeft");
+      playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
       playerGraphic.setGridPos(1, 1);
       stage.addChild(playerGraphic);
-      // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
       stage.update();
 }
 function createGrid() {
