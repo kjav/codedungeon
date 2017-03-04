@@ -16,6 +16,17 @@ function PlayerGraphic(x, y, texture) {
             .endFill();
     };
     
+    shape.drawShapeTween = function(p_x, p_y, t) {
+        var m = new createjs.Matrix2D();
+        m.translate(((1-t) * p_x + t * shape.x) * gridSize, ((1-t) * p_y + t * shape.y) * gridSize);
+        m.scale(gridSize / this.texture.width, gridSize / this.texture.width);
+
+        shape.graphics = new createjs.Graphics()
+            .beginBitmapFill(this.texture, "no-repeat", m)
+            .drawRect(((1-t) * p_x + t * shape.x) * gridSize, ((1-t) * p_y + t * shape.y) * gridSize, gridSize, gridSize)
+            .endFill();
+    };
+    
     shape.drawShape();
     return shape;
 }
