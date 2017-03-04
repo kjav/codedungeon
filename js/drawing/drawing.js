@@ -4,8 +4,12 @@ var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
 var margin = 10;
 var gridSize = gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows;
-var grid = [];
 var playerGraphic;
+
+var grid = [
+    [], [], [], [], [],
+    [], [], [], [], []
+];
 
 var stage, loader; // easeljs variables
 var manifest = [
@@ -15,6 +19,7 @@ var manifest = [
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    addPlayer();
     main();
     resizeCanvas();
     draw();
@@ -26,7 +31,7 @@ function draw() {
 }
 
 function addPlayer() {
-    playerGraphic = new PlayerGraphic(1, 1, stage);
+    playerGraphic = new PlayerGraphic(1, 1);
     stage.addChild(playerGraphic);
     // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
     stage.update();
@@ -41,15 +46,20 @@ function setupGrid() {
 }
 
 function createGrid() {
-    grid = [];
+    grid = [
+        [], [], [], [], [],
+        [], [], [], [], []
+    ];
     var index = 0;
     var x = margin / 2;
     var y = margin / 2;
     for (var i = 0; i < numRows; i++) {
         for (var j = 0; j < numCols; j++) {
             var textureName = getTexture(index);
-            var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName), stage);
-            grid.push(cell);
+            var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName));
+            // console.log(cell);
+            grid[j].push(cell);
+            cell.drawShape();
             x += gridSize;
             index++;
             stage.addChild(cell);
@@ -57,8 +67,10 @@ function createGrid() {
         y += gridSize;
         x = margin / 2;
     }
+    stage.addChild(playerGraphic);
+    playerGraphic.drawShape();
     stage.update();
-    addPlayer();
+    //addPlayer();
 }
 
 function getTexture(index) {

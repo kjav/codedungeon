@@ -16,20 +16,22 @@ function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
   
   this.moveForward = function() {
-    //if tile blocked logic here
-    //else
     switch(orientation) {
       case FACING_NORTH:
-        graphic.y -= 1;
+        if (grid[graphic.x][graphic.y - 1].walkable)
+          graphic.y -= 1;
         break;
       case FACING_EAST:
-        graphic.x += 1;
+        if (grid[graphic.x + 1][graphic.y].walkable)
+          graphic.x += 1;
         break;
       case FACING_SOUTH:
-        graphic.y += 1;
+        if (grid[graphic.x][graphic.y + 1].walkable)
+          graphic.y += 1;
         break;
       case FACING_WEST:
-        graphic.x -= 1;
+        if (grid[graphic.x - 1][graphic.y].walkable)
+          graphic.x -= 1;
         break;
     }
   };
@@ -38,16 +40,20 @@ function Person(x, y, graphic) {
     //else
     switch(orientation) {
       case FACING_NORTH:
-        graphic.y += 1;
+        if (grid[graphic.x][graphic.y + 1].walkable)
+          graphic.y += 1;
         break;
       case FACING_EAST:
-        graphic.x -= 1;
+        if (grid[graphic.x - 1][graphic.y].walkable)
+          graphic.x -= 1;
         break;
       case FACING_SOUTH:
-        graphic.y -= 1;
+        if (grid[graphic.x][graphic.y - 1].walkable)
+          graphic.y -= 1;
         break;
       case FACING_WEST:
-        graphic.x += 1;
+        if (grid[graphic.x + 1][graphic.y].walkable)
+          graphic.x += 1;
         break;
     }
   };
@@ -156,11 +162,11 @@ function pushObject(x, y) {
 
 function Commands(p) {
   var commands = [];
-  
+ 
   this.moveForward = function() {
      commands.push(MOVE_FORWARD);
   };
-  this.moveBackwards = function() {
+  this.moveBackward = function() {
      commands.push(MOVE_BACKWARD);
   };
   this.turnRight = function() {
@@ -178,38 +184,46 @@ function Commands(p) {
   this.wait = function() {
      commands.push(WAIT);
   };  
-  this.execute = function() {
-    console.log(commands.length);
-    if (commands.length > 0) 
-        p.getState();
-    for (i = 0; i < commands.length; i++){
-      //run animations 
-      switch(commands[i])
-      {
-        case MOVE_FORWARD:
-          p.moveForward();
-          break;
-        case MOVE_BACKWARD:
-          p.moveBackward();
-          break;
-        case TURN_LEFT:
-          p.turnLeft();
-          break;
-        case TURN_RIGHT:
-          p.turnRight();
-          break;
-        case PUSH_OBJECT:
-          p.pushObject();
-          break;
-        case INTERACT:
-          p.interact();
-          break;
-        case WAIT:
-          p.wait();
-          break;
-      }
-      p.getState();
+  this.execute = function(that) {
+    console.log('Executing. c: ', commands);
+    if (commands.length == 0) {
+      p.getState(); 
+      return;
     }
-    commands = [];
+    
+    p.getState();
+
+    var command = commands.shift();
+    switch(command)
+    {
+      case MOVE_FORWARD:
+        p.moveForward();
+        break;
+      case MOVE_BACKWARD:
+        p.moveBackward();
+        break;
+      case TURN_LEFT:
+        p.turnLeft();
+        break;
+      case TURN_RIGHT:
+        p.turnRight();
+        break;
+      case PUSH_OBJECT:
+        p.pushObject();
+        break;
+      case INTERACT:
+        p.interact();
+        break;
+      case WAIT:
+        p.wait();
+        break;
+    }
+    playerGraphic.drawShape();
+    stage.update();
+
+    if (that)
+      setTimeout(that.execute.bind(that), 333);
+    else
+      setTimeout(this.execute.bind(this), 333);
   };
 }
