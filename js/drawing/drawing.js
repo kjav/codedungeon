@@ -2,8 +2,8 @@ var numRows = 10;
 var numCols = 10;
 var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
-var margin = 10;
-var gridSize = Math.floor(gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows);
+var gridSize = Math.floor(gameHeight < gameWidth ? gameHeight / numCols : gameWidth / numRows);
+// var topMa gridSize * numCols);
 var playerGraphic;
 
 var grid = [
@@ -51,8 +51,8 @@ function createGrid() {
         [], [], [], [], []
     ];
     var index = 0;
-    var x = margin / 2;
-    var y = margin / 2;
+    var x = 0;
+    var y = 0;
     for (var i = 0; i < numRows; i++) {
         for (var j = 0; j < numCols; j++) {
             var textureName = getTexture(index);
@@ -65,7 +65,7 @@ function createGrid() {
             stage.addChild(cell);
         }
         y += gridSize;
-        x = margin / 2;
+        x = 0;
     }
     stage.addChild(playerGraphic);
     playerGraphic.drawShape();
@@ -103,17 +103,17 @@ function resizeGrid() {
 }
 
 function debugValues() {
-    console.log("Stage Height: " + (gameHeight - margin));
-    console.log("Stage Width: " + (gameWidth - margin));
+    console.log("Stage Height: " + gameHeight);
+    console.log("Stage Width: " + gameWidth);
     console.log("gridSize: " + gridSize);
 }
 
 function resizeCanvas() {
     gameHeight = $('.gamePanel').height();
     gameWidth = $('.gamePanel').width();
-    gridSize = Math.floor(gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows);
-    stage.canvas.height  = gameHeight < gameWidth ? gameHeight : gameWidth;
-    stage.canvas.width = gameHeight < gameWidth ? gameHeight : gameWidth;
+    gridSize = Math.floor(gameHeight < gameWidth ? gameHeight / numCols : gameWidth / numRows);
+    stage.canvas.height  = gridSize * 10;
+    stage.canvas.width = gridSize * 10;
 }
 
 init();
