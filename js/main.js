@@ -85,39 +85,23 @@ function Person(x, y) {
         break;
     }
   };
-  this.turnLeft = function() {
-    switch(orientation) {
-      case FACING_NORTH:
-        orientation = FACING_WEST;
-        break;
-      case FACING_EAST:
-        orientation = FACING_NORTH;
-        break;
-      case FACING_SOUTH:
-        orientation = FACING_EAST;
-        break;
-      case FACING_WEST:
-        orientation = FACING_SOUTH;
-        break;
-    }
-  };
   this.pushObject = function() {
     switch(orientation) {
       case FACING_NORTH:
         //check if tile infront has movable object
-        //move it
+        //pushObject.onPush(orientation);
         break;
       case FACING_EAST:
         //check if tile infront has movable object
-        //move it
+        //pushObject.onPush(orientation);
         break;
       case FACING_SOUTH:
         //check if tile infront has movable object
-        //move it
+        //pushObject.onPush(orientation);
         break;
       case FACING_WEST:
         //check if tile infront has movable object
-        //move it
+        //pushObject.onPush(orientation);
         break;
     }
   };
@@ -145,7 +129,25 @@ function Person(x, y) {
 }
 
 function pushObject(x, y) {
+  var xPos = x;
+  var yPos = y;
   
+  this.onPush = function(orientation) {
+    switch(orientation) {
+      case FACING_NORTH:
+        yPos -= 1;
+        break;
+      case FACING_EAST:
+        xPos += 1;
+        break;
+      case FACING_SOUTH:
+        yPos += 1;
+        break;
+      case FACING_WEST:
+        xPos -= 1;
+        break;
+    }
+  }
   this.getState = function() {
     console.log("x Position: " + xPos + ", y Position: " + yPos);
   }
