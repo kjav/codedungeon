@@ -1,20 +1,32 @@
 var editor = ace.edit("editor");
 
+editor.getSession().setTabSize(2);
+editor.getSession().setUseSoftTabs(true);
+editor.setTheme("ace/theme/monokai");
+editor.getSession().setMode("ace/mode/javascript");
+
 // Load code from previous session
 var previous_session = window.localStorage.getItem('code');
 
-editor.setTheme("ace/theme/monokai");
-editor.getSession().setMode("ace/mode/javascript");
 if (previous_session)
   editor.setValue(previous_session);
 else
   editor.setValue("function level1Code(){" + "\n" + "\n" + "}");
 
 function run_code() {
-  console.log(window.eval(editor.getValue()));
-  level1Code();
-  player.execute();
-  $("#run").prop('disabled', true);
+  var user_error = false;
+  try {
+    window.eval(editor.getValue());
+  } catch (e) {
+    user_error = true;
+    alert(e);
+  }
+
+  if (!user_error) {
+    level1Code();
+    player.execute();
+    $("#run").prop('disabled', true);
+  }
 }
 
 // Add ctrl-enter keybinding for running code
