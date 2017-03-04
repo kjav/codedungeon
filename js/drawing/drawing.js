@@ -3,9 +3,7 @@ var numCols = 10;
 var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
 var gridSize = Math.floor(gameHeight < gameWidth ? gameHeight / numCols : gameWidth / numRows);
-// var topMa gridSize * numCols);
 var playerGraphic;
-
 var grid = [
     [], [], [], [], [],
     [], [], [], [], []
@@ -100,8 +98,7 @@ function createGrid() {
     var y = 0;
     for (var i = 0; i < numRows; i++) {
         for (var j = 0; j < numCols; j++) {
-            var textureName = getTexture(index);
-            var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName));
+            var cell = new GridCell(x / 2, y / 2, getWalkable(i ,j), loader.getResult(getTexture(i, j)));
             // console.log(cell);
             grid[j].push(cell);
             cell.drawShape();
@@ -123,8 +120,8 @@ function changeTexture(x, y, textureString) {
     stage.update();
 }
 
-function getTexture(index) {
-    switch (mapOne[index]) {
+function getTexture(x, y) {
+    switch (mapOne[x][y]) {
         case 0: // grass
             return "grass";
             break;
@@ -159,8 +156,8 @@ function getTexture(index) {
     }
 }
 
-function getWalkable(index) {
-    switch (mapOne[index]) {
+function getWalkable(x, y) {
+    switch (mapOne[x][y]) {
         case 0: // grass
             return true;
             break;

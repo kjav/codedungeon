@@ -13,7 +13,7 @@ var FACING_SOUTH = "South";
 var FACING_WEST = "West";
 
 // Time per animation in ms
-var frame_time = 200;
+var frame_time = 500;
 
 function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
@@ -197,6 +197,9 @@ function Commands(p) {
     
     p.getState();
 
+    var prev_x = playerGraphic.x;
+    var prev_y = playerGraphic.y;
+
     var command = commands.shift();
     switch(command)
     {
@@ -222,12 +225,22 @@ function Commands(p) {
         p.wait();
         break;
     }
-    playerGraphic.drawShape();
-    stage.update();
 
-    if (that)
-      setTimeout(that.execute.bind(that), frame_time);
-    else
-      setTimeout(this.execute.bind(this), frame_time);
+    var startTime = window.performance.now();
+    var render_interval = setInterval(function() {
+      var time = (window.performance.now() - startTime) / frame_time;
+      playerGraphic.drawShapeTween(prev_x, prev_y, time);
+      stage.update();
+    }, 16);
+
+    var boundExecute = this.execute.bind(this);
+
+    console.log('this: ', this, ', that: ', that);
+    setTimeout(function() {
+      clearInterval(render_interval);
+      playerGraphic.drawShape();
+      stage.update();
+      boundExecute()
+    }, frame_time);
   };
 }

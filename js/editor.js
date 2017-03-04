@@ -1,4 +1,7 @@
 var editor = ace.edit("editor");
+editor.setOptions({
+    fontSize: "11pt"
+});
 
 // Load code from previous session
 var previous_session = window.localStorage.getItem('code');
