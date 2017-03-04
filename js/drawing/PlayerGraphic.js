@@ -36,6 +36,10 @@ function PlayerGraphic(x, y, animation) {
 
     };
     
+    shape.changeAnimation = function(animation){
+      this.animation = animation;
+    }
+    
     shape.drawShape();
     return shape;
 }

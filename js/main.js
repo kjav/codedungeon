@@ -64,15 +64,23 @@ function Person(x, y, graphic) {
     switch(orientation) {
       case FACING_NORTH:
         orientation = FACING_EAST;
+        animation = new createjs.Sprite(spriteSheet, "stopRight");
+        playerGraphic.changeAnimation(animation);
         break;
       case FACING_EAST:
         orientation = FACING_SOUTH;
+        animation = new createjs.Sprite(spriteSheet, "stopDown");
+        playerGraphic.changeAnimation(animation);
         break;
       case FACING_SOUTH:
         orientation = FACING_WEST;
+        animation = new createjs.Sprite(spriteSheet, "stopLeft");
+        playerGraphic.changeAnimation(animation);
         break;
       case FACING_WEST:
         orientation = FACING_NORTH;
+        animation = new createjs.Sprite(spriteSheet, "stopUp");
+        playerGraphic.changeAnimation(animation);
         break;
     }
   };
@@ -80,15 +88,23 @@ function Person(x, y, graphic) {
     switch(orientation) {
       case FACING_NORTH:
         orientation = FACING_WEST;
+        animation = new createjs.Sprite(spriteSheet, "stopLeft");
+        playerGraphic.changeAnimation(animation);
         break;
       case FACING_EAST:
         orientation = FACING_NORTH;
+        animation = new createjs.Sprite(spriteSheet, "stopUp");
+        playerGraphic.changeAnimation(animation);
         break;
       case FACING_SOUTH:
         orientation = FACING_EAST;
+        animation = new createjs.Sprite(spriteSheet, "stopRight");
+        playerGraphic.changeAnimation(animation);
         break;
       case FACING_WEST:
         orientation = FACING_SOUTH;
+        animation = new createjs.Sprite(spriteSheet, "stopDown");
+        playerGraphic.changeAnimation(animation);
         break;
     }
   };
