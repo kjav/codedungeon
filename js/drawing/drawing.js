@@ -56,7 +56,7 @@ var manifest = [
        framerate: 31
     }
     var spriteSheet = new createjs.SpriteSheet(data);
-    var animation = new createjs.Sprite(spriteSheet, "walkDown");
+    var animation = new createjs.Sprite(spriteSheet, "stopLeft");
 
 function init() {
     stage = new createjs.Stage("gameCanvas");

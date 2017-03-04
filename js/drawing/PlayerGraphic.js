@@ -14,19 +14,26 @@ function PlayerGraphic(x, y, animation) {
 
         shape.graphics = new createjs.Graphics()
             .beginBitmapFill(frame.image, "no-repeat", m)
-            .drawRect(this.x * gridSize, shape.y * gridSize, gridSize, gridSize)
+            .drawRect(shape.x * gridSize, shape.y * gridSize, gridSize, gridSize)
             .endFill();
     };
     
     shape.drawShapeTween = function(p_x, p_y, t) {
+        var frame = this.animation.spriteSheet.getFrame(this.animation.currentFrame);
+        var scale_factor = 4 * gridSize / frame.image.width
+        
         var m = new createjs.Matrix2D();
-        m.translate(((1-t) * p_x + t * shape.x) * gridSize, ((1-t) * p_y + t * shape.y) * gridSize);
-        m.scale(gridSize / this.texture.width, gridSize / this.texture.width);
+        m.translate(((1-t) * p_x + t * shape.x) * gridSize - frame.rect.x,
+                    ((1-t) * p_y + t * shape.y) * gridSize - frame.rect.y);
+        m.scale(scale_factor, scale_factor);
 
         shape.graphics = new createjs.Graphics()
-            .beginBitmapFill(this.texture, "no-repeat", m)
-            .drawRect(((1-t) * p_x + t * shape.x) * gridSize, ((1-t) * p_y + t * shape.y) * gridSize, gridSize, gridSize)
+            .beginBitmapFill(frame.image, "no-repeat", m)
+            .drawRect(((1-t) * p_x + t * shape.x) * gridSize,
+                      ((1-t) * p_y + t * shape.y) * gridSize,
+                      gridSize, gridSize)
             .endFill();
+
     };
     
     shape.drawShape();
