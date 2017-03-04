@@ -11,10 +11,6 @@ function GridCell(x, y, walkable, texture, stage) {
 GridCell.prototype = new createjs.Shape();
 GridCell.prototype.constructor = GridCell;
 
-GridCell.prototype.isWalkable = function() {
-    return this.walkable;
-};
-
 GridCell.prototype.setWalkable = function(newWalkable) {
     this.walkable = newWalkable;
 };

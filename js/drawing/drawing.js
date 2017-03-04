@@ -46,7 +46,10 @@ function setupGrid() {
 }
 
 function createGrid() {
-    grid = [];
+    grid = [
+        [], [], [], [], [],
+        [], [], [], [], []
+    ];
     var index = 0;
     var x = margin / 2;
     var y = margin / 2;
