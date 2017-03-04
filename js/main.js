@@ -12,9 +12,7 @@ var FACING_EAST = "East";
 var FACING_SOUTH = "South";
 var FACING_WEST = "West";
 
-function Person(x, y) {
-  var xPos = x;
-  var yPos = y;
+function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
   
   this.moveForward = function() {
@@ -22,16 +20,16 @@ function Person(x, y) {
     //else
     switch(orientation) {
       case FACING_NORTH:
-        yPos -= 1;
+        graphic.y -= 1;
         break;
       case FACING_EAST:
-        xPos += 1;
+        graphic.x += 1;
         break;
       case FACING_SOUTH:
-        yPos += 1;
+        graphic.y += 1;
         break;
       case FACING_WEST:
-        xPos -= 1;
+        graphic.x -= 1;
         break;
     }
   };
@@ -40,16 +38,16 @@ function Person(x, y) {
     //else
     switch(orientation) {
       case FACING_NORTH:
-        yPos += 1;
+        graphic.y += 1;
         break;
       case FACING_EAST:
-        xPos -= 1;
+        graphic.x -= 1;
         break;
       case FACING_SOUTH:
-        yPos -= 1;
+        graphic.y -= 1;
         break;
       case FACING_WEST:
-        xPos += 1;
+        graphic.x += 1;
         break;
     }
   };
@@ -105,6 +103,7 @@ function Person(x, y) {
         break;
     }
   };
+
   this.interact = function() {
     switch(orientation) {
       case FACING_NORTH:
@@ -121,11 +120,13 @@ function Person(x, y) {
         break;
     }
   };
+
   this.wait = function() {
   };
+
   this.getState = function() {
-    console.log("x Position: " + xPos + ", y Position: " + yPos + ", Orientation: " + orientation);
-  }
+    console.log("x Position: " + graphic.x + ", y Position: " + graphic.y + ", Orientation: " + orientation);
+  };
 }
 
 function pushObject(x, y) {
@@ -149,7 +150,7 @@ function pushObject(x, y) {
     }
   }
   this.getState = function() {
-    console.log("x Position: " + xPos + ", y Position: " + yPos);
+    console.log("x Position: " + graphic.x + ", y Position: " + graphic.y);
   }
 }
 

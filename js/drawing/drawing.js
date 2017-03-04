@@ -15,6 +15,7 @@ var manifest = [
 
 function init() {
     stage = new createjs.Stage("gameCanvas");
+    main();
     resizeCanvas();
     draw();
 }
@@ -25,7 +26,7 @@ function draw() {
 }
 
 function addPlayer() {
-    playerGraphic = new PlayerGraphic(4, 4, stage);
+    playerGraphic = new PlayerGraphic(1, 1, stage);
     stage.addChild(playerGraphic);
     // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
     stage.update();
@@ -106,6 +107,5 @@ function resizeCanvas() {
 init();
 
 $(window).on('resize', function() {
-   console.log('woooohh');
    resizeGrid();
 });
