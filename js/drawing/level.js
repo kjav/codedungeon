@@ -4,6 +4,7 @@ var currentLevel;
 var currentMap;
 var currentState;
 var currentGoalCheck;
+var levelKey;
 
 function setLevel(levelNumber) {
     switch(levelNumber) {
@@ -25,8 +26,6 @@ function setLevel(levelNumber) {
     currentState = currentLevel["state"];
     currentGoalCheck = currentLevel["checkGoal"];
 }
-
-setLevel(1);
 
 function changeLevel() {
     // set currentLevelNumber++;
