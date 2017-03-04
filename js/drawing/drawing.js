@@ -23,6 +23,10 @@ function init() {
     draw();
 }
 
+function nextLevel() {
+    init();
+}
+
 function draw() {
     setupGrid();
 }
