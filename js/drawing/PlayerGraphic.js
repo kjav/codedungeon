@@ -1,17 +1,19 @@
-function PlayerGraphic(x, y, texture) {
+function PlayerGraphic(x, y, animation) {
     var shape = new createjs.Shape();
     shape.x = x;
     shape.y = y;
-    shape.texture = texture;
-    console.log(texture);
+    shape.animation = animation;
     
     shape.drawShape = function() {
+        var frame = this.animation.spriteSheet.getFrame(this.animation.currentFrame);
+        var scale_factor = 4 * gridSize / frame.image.width
+        
         var m = new createjs.Matrix2D();
-        m.translate(shape.x * gridSize, shape.y * gridSize);
-        m.scale(gridSize / this.texture.width, gridSize / this.texture.width);
+        m.translate(shape.x * gridSize - frame.rect.x, shape.y * gridSize - frame.rect.y);
+        m.scale(scale_factor, scale_factor);
 
         shape.graphics = new createjs.Graphics()
-            .beginBitmapFill(this.texture, "no-repeat", m)
+            .beginBitmapFill(frame.image, "no-repeat", m)
             .drawRect(this.x * gridSize, shape.y * gridSize, gridSize, gridSize)
             .endFill();
     };
