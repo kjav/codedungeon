@@ -14,6 +14,8 @@ else
   editor.setValue("function level1Code(){" + "\n" + "\n" + "}");
 
 function run_code() {
+  p.reset();
+
   var user_error = false;
   try {
     window.eval(editor.getValue());

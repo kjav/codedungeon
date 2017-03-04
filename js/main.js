@@ -333,6 +333,10 @@ function Commands(p) {
       boundExecute()
     }, frame_time);
   };
+
+  this.reset = function() {
+    commands = [];
+  };
 }
 
 function render() {
