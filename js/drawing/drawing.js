@@ -45,8 +45,29 @@ function createGrid() {
         x = margin / 2;
     }
     stage.update();
+
+function getTexture(index) {
+    switch (mapOne[index]) {
+        case 0: // dirt
+            return "dirt";
+            break;
+        case 1: // stone
+            return "stone";
+            break;
+
+    }
 }
 
+function getWalkable(index) {
+    switch (mapOne[index]) {
+        case 0: // dirt
+            return true;
+            break;
+        case 1: // stone
+            return false;
+            break;
+    }
+}
 
 function resizeGrid() {
     stage.removeAllChildren();
