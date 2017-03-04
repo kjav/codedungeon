@@ -170,6 +170,10 @@ function Person(x, y, graphic) {
 
   this.wait = function() {
   };
+  
+  this.pickUp = function() {
+    //put logic in here
+  };
 
   this.getState = function() {
     console.log("x Position: " + graphic.x + ", y Position: " + graphic.y + ", Orientation: " + orientation);
@@ -225,6 +229,9 @@ function Commands(p) {
   this.wait = function() {
      commands.push(WAIT);
   };  
+  this.pickUp = function() {
+     commands.push(PICKUP);
+  };
   this.execute = function(that) {
     console.log('Executing. c: ', commands);
     if (commands.length == 0) {
@@ -268,6 +275,9 @@ function Commands(p) {
         p.interact();
         break;
       case WAIT:
+        p.wait();
+        break;
+      case PICKUP:
         p.wait();
         break;
     }
