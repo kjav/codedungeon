@@ -12,6 +12,9 @@ var FACING_EAST = "East";
 var FACING_SOUTH = "South";
 var FACING_WEST = "West";
 
+// Time per animation in ms
+var frame_time = 50;
+
 function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
   
@@ -222,8 +225,8 @@ function Commands(p) {
     stage.update();
 
     if (that)
-      setTimeout(that.execute.bind(that), 333);
+      setTimeout(that.execute.bind(that), frame_time);
     else
-      setTimeout(this.execute.bind(this), 333);
+      setTimeout(this.execute.bind(this), frame_time);
   };
 }
