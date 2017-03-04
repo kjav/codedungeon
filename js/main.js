@@ -7,7 +7,6 @@ var PUSH_OBJECT = 5;
 var INTERACT = 6;
 var WAIT = 7;
 
-
 var FACING_NORTH = "North";
 var FACING_EAST = "East";
 var FACING_SOUTH = "South";
@@ -175,11 +174,11 @@ function Commands(p) {
   };
   this.wait = function() {
      commands.push(WAIT);
-  };
-  
-  
+  };  
   this.execute = function() {
-    p.getState();
+    console.log(commands.length);
+    if (commands.length > 0) 
+        p.getState();
     for (i = 0; i < commands.length; i++){
       //run animations 
       switch(commands[i])
@@ -206,9 +205,8 @@ function Commands(p) {
           p.wait();
           break;
       }
+      p.getState();
     }
-    p.getState();
     commands = [];
   };
 }
-
