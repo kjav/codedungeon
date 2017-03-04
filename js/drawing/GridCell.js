@@ -1,5 +1,4 @@
 function GridCell(x, y, walkable, texture, stage) {
-    console.log('Creating Grid Cell: ' + x + ', ' + y);
     createjs.Shape.call(this);
     this.x = x;
     this.y = y;
@@ -21,9 +20,12 @@ GridCell.prototype.setWalkable = function(newWalkable) {
 };
 
 GridCell.prototype.drawShape = function() {
-    console.log('Drawing shape at: ' + this.x + ', ' + this.y);
+    var m = new createjs.Matrix2D();
+    m.translate(this.x, this.y);
+    m.scale(gridSize / this.texture.width, gridSize / this.texture.width);
+
     this.graphics = new createjs.Graphics()
-        .beginFill("#00ff00")
+        .beginBitmapFill(this.texture, "no-repeat", m)
         .drawRect(this.x, this.y, gridSize, gridSize)
         .endFill();
 };
