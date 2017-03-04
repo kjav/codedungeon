@@ -25,7 +25,6 @@ function init() {
 
 function draw() {
     setupGrid();
-    debugValues();
 }
 
 function setupGrid() {
