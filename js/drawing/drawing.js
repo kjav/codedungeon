@@ -9,8 +9,8 @@ var playerGraphic;
 
 var stage, loader; // easeljs variables
 var manifest = [
-    { src: "http://i.imgur.com/a1GAAKZ.png", id: "stone" },
-    { src: "http://3.bp.blogspot.com/-Qs0ZbaSy4KM/T6AuMiorc6I/AAAAAAAABOc/RpA3dZGicC8/s1600/minecraft_dirt.jpg", id: "dirt" }
+    { src: "http://i.imgur.com/c05eK8H.png", id: "stone" },
+    { src: "http://i.imgur.com/sGowEpM.jpg", id: "dirt" }
 ];
 
 function init() {
