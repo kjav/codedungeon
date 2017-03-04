@@ -21,13 +21,18 @@ body {
     background: #2980b9;
     display: inline-block;
     height: 100%;
+    position: relative;
     width: 59%;
 }
 
 #gameCanvas {
     background: #34495e;
-    margin: 5px;
-    position: relative;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 
 .codingPanel {
