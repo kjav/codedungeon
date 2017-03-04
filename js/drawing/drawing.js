@@ -25,7 +25,7 @@ function draw() {
 }
 
 function addPlayer() {
-    playerGraphic = new PlayerGraphic(100, 100, stage);
+    playerGraphic = new PlayerGraphic(4, 4, stage);
     stage.addChild(playerGraphic);
     // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
     stage.update();
