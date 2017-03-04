@@ -1,25 +1,30 @@
-function PlayerGraphic(spriteSheet, startAnimation) {
-    var shape = new createjs.Sprite(spriteSheet, startAnimation);
-    shape.x = 0;
-    shape.y = 0;
-    shape.gridX = 0;
-    shape.gridY = 0;
+var itemsInLevel = []; //so we can easily check when they have been walked on
+
+function PickupGraphic(i, j, spriteSheet, startAnimation) {
+    var shape;
+    if (startAnimation)
+      shape = new createjs.Sprite(spriteSheet, startAnimation);
+    else
+      shape = new createjs.Sprite(spriteSheet);
+
     shape.setGridPos = function(i, j) {
       shape.setGridX(i);
       shape.setGridY(j);
     };
+
     shape.setGridX = function(i) {
       shape.gridX = i;
       shape.x = i * gridSize;
     };
+
     shape.setGridY = function(j) {
       shape.gridY = j;
       shape.y = j * gridSize;
     };
 
     shape.resize = function() {
-      shape.scaleX = gridSize / 48;
-      shape.scaleY = gridSize / 48;
+      shape.scaleX = gridSize / 400;
+      shape.scaleY = gridSize / 400;
     };
 
     shape.tween = function(p_x, p_y, t) {
@@ -27,7 +32,11 @@ function PlayerGraphic(spriteSheet, startAnimation) {
       shape.y = t * (gridSize * shape.gridY) + (1-t) * p_y;
     }
 
+    shape.setGridPos(i, j);
+
     shape.resize();
+
+    itemsInLevel.push(shape);
 
     return shape;
 }

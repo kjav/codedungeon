@@ -61,5 +61,11 @@ var boyData = {
     },
     framerate: 5
 };
+
+var keySpriteSheet = new createjs.SpriteSheet({
+  images: ["http://i.imgur.com/kzcZf7X.png"],
+  frames: { width: 400, height: 400, count: 1, regX: 0, reyY: 0, spacing: 0, margin: 0 }
+});
+
 var girlSpriteSheet = new createjs.SpriteSheet(girlData);
 var boySpriteSheet = new createjs.SpriteSheet(boyData);

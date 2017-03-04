@@ -40,12 +40,12 @@ var levels = {
         ],
        state: {
             GoalCoords: {
-                x: 8,
+                x: 9,
                 y: 5
             },
-            Key:{
+            Key: {
                 x: 4,
-                y: 8
+                y: 9
             }
         },
         checkGoal: function(state) {

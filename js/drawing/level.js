@@ -4,6 +4,7 @@ var currentLevel;
 var currentMap;
 var currentState;
 var currentGoalCheck;
+var levelKey;
 
 function setLevel(levelNumber) {
     switch(levelNumber) {
@@ -26,7 +27,7 @@ function setLevel(levelNumber) {
     currentGoalCheck = currentLevel["checkGoal"];
 }
 
-setLevel(1);
+// setLevel(1);
 
 function levelCompleted() {
     hideNextLevelButton();

@@ -20,7 +20,6 @@ function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
   
   this.moveForward = function() {
-    console.log('here: ', graphic, playerGraphic);
     switch(orientation) {
       case FACING_NORTH:
         if (grid[graphic.gridX][graphic.gridY - 1].walkable)
@@ -37,13 +36,10 @@ function Person(x, y, graphic) {
         }
         break;
       case FACING_SOUTH:
-        console.log('here 2');
         if (grid[graphic.gridX][graphic.gridY + 1].walkable)
         {
-          console.log('here 3: ', graphic.gridY);
           graphic.setGridY(graphic.gridY + 1);
           graphic.gotoAndPlay("walkDown");
-          console.log('here 4: ', graphic.gridY);
         }
         break;
       case FACING_WEST:
@@ -167,12 +163,33 @@ function Person(x, y, graphic) {
         break;
     }
   };
+  
+    this.interact = function() {
+    switch(orientation) {
+      case FACING_NORTH:
+        //interact with tile infront
+        break;
+      case FACING_EAST:
+        //interact with tile infront
+        break;
+      case FACING_SOUTH:
+        //interact with tile infront
+        break;
+      case FACING_WEST:
+        //interact with tile infront
+        break;
+    }
+  };
 
   this.wait = function() {
   };
   
   this.pickUp = function() {
-    //put logic in here
+    for(i = 0; i < itemsInLevel.length; i++)
+    {
+      if ((itemsInLevel[i].gridX == graphic.gridX) && (itemsInLevel[i].gridY == graphic.gridY))
+        itemsInLevel[i].taken = true;
+    }
   };
 
   this.getState = function() {
@@ -279,26 +296,30 @@ function Commands(p) {
         p.wait();
         break;
       case PICKUP:
-        p.wait();
+        p.pickUp();
         break;
     }
+
+    playerGraphic.tween(prev_x, prev_y, 0);
 
     var startTime = window.performance.now();
     var render_interval = setInterval(function() {
       var time = (window.performance.now() - startTime) / frame_time;
-      console.log(time);
       playerGraphic.tween(prev_x, prev_y, time);
-      stage.update();
     }, 16);
 
     var boundExecute = this.execute.bind(this);
 
-    console.log('this: ', this, ', that: ', that);
     setTimeout(function() {
       clearInterval(render_interval);
       playerGraphic.tween(prev_x, prev_y, 1);
-      stage.update();
       boundExecute()
     }, frame_time);
   };
+}
+
+function render() {
+  stage.update();
+
+  window.requestAnimationFrame(render);
 }
