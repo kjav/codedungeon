@@ -167,12 +167,33 @@ function Person(x, y, graphic) {
         break;
     }
   };
+  
+    this.interact = function() {
+    switch(orientation) {
+      case FACING_NORTH:
+        //interact with tile infront
+        break;
+      case FACING_EAST:
+        //interact with tile infront
+        break;
+      case FACING_SOUTH:
+        //interact with tile infront
+        break;
+      case FACING_WEST:
+        //interact with tile infront
+        break;
+    }
+  };
 
   this.wait = function() {
   };
   
   this.pickUp = function() {
-    //put logic in here
+    for(i = 0; i < itemsInLevel.length; i++)
+    {
+      if ((itemsInLevel[i].gridX == graphic.gridX) && (itemsInLevel[i].gridY == graphic.gridY))
+        itemsInLevel[i].taken = true;
+    }
   };
 
   this.getState = function() {
@@ -278,7 +299,7 @@ function Commands(p) {
         p.wait();
         break;
       case PICKUP:
-        p.wait();
+        p.pickUp();
         break;
     }
 
