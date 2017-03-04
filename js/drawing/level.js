@@ -1,5 +1,5 @@
 
-var currentLevelNumber = 1;
+var currentLevelNumber = 0;
 var currentLevel;
 var currentMap;
 var currentState;
@@ -36,7 +36,11 @@ function levelCompleted() {
     nextLevel();
 }
 
+levelCompleted();
+
+
 function showNextLevelButton() {
+    $('.gameMessagePanel').fadeIn(200);
     readMessage("Well well mortal.. you impress me.", function() {
         $('.nextLevel').addClass('shown').fadeTo(400, 0.9);
     });
@@ -58,9 +62,6 @@ function readMessage(message, customCallback) {
         callback: customCallback
     });
 }
-
-readMessage("Puny mortal. How dare you enter my realm. I shall not allow you to leave.");
-
 
 // createjs.Sound.addEventListener("fileload";
 createjs.Sound.registerSound("../../sounds/text-scroll.mp3", "text");

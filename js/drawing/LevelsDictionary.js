@@ -13,11 +13,16 @@ var levels = {
             [2, 0, 0, 0, 0, 0, 0, 0, 0, 3],
             [8, 5, 5, 5, 5, 5, 5, 5, 5, 9]
         ],
+        startingText: "Puny mortal. How dare you enter my realm. I shall not allow you to leave.",
        state: {
             GoalCoords: {
                 x: 3,
                 y: 2
-            }
+            },
+           startCoords: {
+                x: 5,
+                y: 5
+           }
         },
         checkGoal: function(state) {
             console.log('GoalCoord x:' + state['GoalCoords'].x + ', GoalCoords y: ' + state['GoalCoords'].y);
@@ -38,11 +43,16 @@ var levels = {
             [2, 0, 0, 0, 0, 1, 0, 0, 0, 3],
             [8, 5, 5, 5, 5, 5, 5, 5, 5, 9]
         ],
-       state: {
+        startingText: "TEST LEVEL 2 TEXT.",
+        state: {
             GoalCoords: {
                 x: 9,
                 y: 5
             },
+           startCoords: {
+               x: 1,
+               y: 4
+           },
             Key: {
                 x: 4,
                 y: 9
