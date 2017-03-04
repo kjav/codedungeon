@@ -6,8 +6,8 @@ function PlayerGraphic(x, y, stage) {
       this.graphics = new createjs.Graphics()
         .beginFill("DeepSkyBlue")
         .drawRect(
-          5 + gridSize * shape.x + gridSize * 0.2,
-          5 + gridSize * shape.y + gridSize * 0.2,
+          margin / 2 + gridSize * shape.x + gridSize * 0.2,
+          margin / 2 + gridSize * shape.y + gridSize * 0.2,
           gridSize * 0.6,
           gridSize * 0.6);
     };
