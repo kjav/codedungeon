@@ -63,4 +63,3 @@ var boyData = {
 };
 var girlSpriteSheet = new createjs.SpriteSheet(girlData);
 var boySpriteSheet = new createjs.SpriteSheet(boyData);
-//var animation = new createjs.Sprite(boySpriteSheet, "stopDown");

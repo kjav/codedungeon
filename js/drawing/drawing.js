@@ -33,10 +33,9 @@ function setupGrid() {
 }
 
 function addPlayer() {
-      playerGraphic = new PlayerGraphic(boySpriteSheet, "walkLeft");
+      playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
       playerGraphic.setGridPos(1, 1);
       stage.addChild(playerGraphic);
-      // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
       stage.update();
 }
 function createGrid() {
