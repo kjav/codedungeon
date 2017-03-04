@@ -1,10 +1,18 @@
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel='stylesheet' href='css/main.css'>
   </head>
   <body>
   <div class="gamePanel mainPanel">
     <canvas id="gameCanvas"></canvas>
+    <div class="gameMessagePanel">
+      <div class="gameMessageContainer">
+        <img class="speakerImage" src="./img/pikachu.png">
+        <span class="gameMessage"></span>
+        <button class="nextLevel">Continue</button>
+      </div>
+    </div>
   </div>
 
   <div class="codingPanel mainPanel">
@@ -30,10 +38,12 @@
       console.log(playerGraphic);
 	    p = new Person(1, 1, playerGraphic);
       player = new Commands(p);
+      window.requestAnimationFrame(render);
     }
 	</script>
 
   <!-- Scripts for game panel -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
   <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
   <script src='js/drawing/LevelsDictionary.js'></script>
   <script src='js/drawing/level.js'></script>
@@ -42,5 +52,7 @@
   <script src='js/drawing/sprites.js'></script>
   <script src='js/drawing/GridCell.js'></script>
   <script src='js/drawing/PlayerGraphic.js'></script>
+  <script src='js/drawing/LavaGraphic.js'></script>
+  <script src='js/drawing/PickupGraphic.js'></script>
   <script src='js/drawing/drawing.js'></script>
 </html>

@@ -1,4 +1,4 @@
-function PlayerGraphic(spriteSheet, startAnimation) {
+function LavaGraphic(spriteSheet, startAnimation) {
     var shape = new createjs.Sprite(spriteSheet, startAnimation);
     shape.x = 0;
     shape.y = 0;
@@ -18,14 +18,9 @@ function PlayerGraphic(spriteSheet, startAnimation) {
     };
 
     shape.resize = function() {
-      shape.scaleX = gridSize / 48;
-      shape.scaleY = gridSize / 48;
+      shape.scaleX = gridSize / 128;
+      shape.scaleY = gridSize / 128;
     };
-
-    shape.tween = function(p_x, p_y, t) {
-      shape.x = t * (gridSize * shape.gridX) + (1-t) * p_x;
-      shape.y = t * (gridSize * shape.gridY) + (1-t) * p_y;
-    }
 
     shape.resize();
 

@@ -33,6 +33,62 @@ body {
     top: 0;
 }
 
+.gameMessagePanel {
+    background: rgba(0, 0, 0, 0.6);
+    bottom: 60px;
+    display: table;
+    height: 80px;
+    left: 10%;
+    position: absolute;
+    text-align: center;
+    width: 80%;
+}
+
+.gameMessageContainer {
+    color: #fff;
+    display: table;
+    height: 80px;
+    position: relative;
+    width: 100%;
+}
+
+.speakerImage {
+    display: inline-block;
+    float: left;
+    height: 80px;
+    margin: 5px;
+    position: relative;
+}
+
+
+.gameMessage {
+    display: table-cell;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 17px;
+    line-height: 24px;
+    padding: 0px 5%;
+    text-align: center;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.typed-cursor {
+    display: none;
+}
+
+.nextLevel {
+    display: none;
+    cursor: pointer;
+    height: 100%;
+    opacity: 0;
+    vertical-align: top;
+    width: 90px;
+}
+
+.nextLevel.shown {
+    display: table-cell;
+}
+
 .codingPanel {
     display: inline-block;
     height: 100%;
@@ -70,3 +126,4 @@ body {
 #run:hover {
     background-color: #2C2D26;
 }
+
