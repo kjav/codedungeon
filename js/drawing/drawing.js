@@ -4,11 +4,13 @@ var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
 var margin = 10;
 var gridSize = gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows;
-var grid = [numRows][numCols];
+var grid = [];
+var playerGraphic;
 
 var stage, loader; // easeljs variables
 var manifest = [
-    {src: "http://3.bp.blogspot.com/-Qs0ZbaSy4KM/T6AuMiorc6I/AAAAAAAABOc/RpA3dZGicC8/s1600/minecraft_dirt.jpg", id: "dirt"}
+    { src: "http://i.imgur.com/a1GAAKZ.png", id: "stone" },
+    { src: "http://3.bp.blogspot.com/-Qs0ZbaSy4KM/T6AuMiorc6I/AAAAAAAABOc/RpA3dZGicC8/s1600/minecraft_dirt.jpg", id: "dirt" }
 ];
 
 function init() {
@@ -22,6 +24,13 @@ function draw() {
     debugValues();
 }
 
+function addPlayer() {
+    playerGraphic = new PlayerGraphic(100, 100, stage);
+    stage.addChild(playerGraphic);
+    // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
+    stage.update();
+}
+
 function setupGrid() {
     loader = new createjs.LoadQueue();
     loader.loadManifest(manifest);
@@ -31,20 +40,25 @@ function setupGrid() {
 }
 
 function createGrid() {
+    grid = [];
+    var index = 0;
     var x = margin / 2;
     var y = margin / 2;
-    console.log('GRID SIZE HERE IS: ' + gridSize);
     for (var i = 0; i < numRows; i++) {
         for (var j = 0; j < numCols; j++) {
-            var cell = new GridCell(x / 2, y / 2, true, loader.getResult('dirt'), stage);
-            // grid[i][j].push(cell);
+            var textureName = getTexture(index);
+            var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName), stage);
+            grid.push(cell);
             x += gridSize;
+            index++;
             stage.addChild(cell);
         }
         y += gridSize;
         x = margin / 2;
     }
     stage.update();
+    addPlayer();
+}
 
 function getTexture(index) {
     switch (mapOne[index]) {
@@ -73,7 +87,6 @@ function resizeGrid() {
     stage.removeAllChildren();
     resizeCanvas();
     createGrid();
-    stage.update();
 }
 
 function debugValues() {
