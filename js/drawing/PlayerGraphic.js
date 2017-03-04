@@ -1,41 +1,35 @@
-function PlayerGraphic(x, y, animation) {
-    var shape = new createjs.Shape();
-    shape.x = x;
-    shape.y = y;
-    shape.animation = animation;
-    
-    shape.drawShape = function() {
-        var frame = this.animation.spriteSheet.getFrame(this.animation.currentFrame);
-        var scale_factor = 4 * gridSize / frame.image.width
-        
-        var m = new createjs.Matrix2D();
-        m.translate(shape.x * gridSize - frame.rect.x * scale_factor, shape.y * gridSize - frame.rect.y * scale_factor);
-        m.scale(scale_factor, scale_factor);
-
-        shape.graphics = new createjs.Graphics()
-            .beginBitmapFill(frame.image, "no-repeat", m)
-            .drawRect(shape.x * gridSize, shape.y * gridSize, gridSize, gridSize)
-            .endFill();
+function PlayerGraphic(spriteSheet, startAnimation) {
+    var shape = new createjs.Sprite(spriteSheet, startAnimation);
+    shape.x = 0;
+    shape.y = 0;
+    shape.gridX = 0;
+    shape.gridY = 0;
+    shape.setGridPos = function(i, j) {
+      shape.setGridX(i);
+      shape.setGridY(j);
     };
-    
-    shape.drawShapeTween = function(p_x, p_y, t) {
-        var frame = this.animation.spriteSheet.getFrame(this.animation.currentFrame);
-        var scale_factor = 4 * gridSize / frame.image.width
-        
-        var m = new createjs.Matrix2D();
-        m.translate(((1-t) * p_x + t * shape.x) * gridSize - frame.rect.x * scale_factor,
-                    ((1-t) * p_y + t * shape.y) * gridSize - frame.rect.y * scale_factor);
-        m.scale(scale_factor, scale_factor);
-
-        shape.graphics = new createjs.Graphics()
-            .beginBitmapFill(frame.image, "no-repeat", m)
-            .drawRect(((1-t) * p_x + t * shape.x) * gridSize,
-                      ((1-t) * p_y + t * shape.y) * gridSize,
-                      gridSize, gridSize)
-            .endFill();
-
+    shape.setGridX = function(i) {
+      shape.gridX = i;
+      shape.x = i * gridSize;
     };
-    
-    shape.drawShape();
+    shape.setGridY = function(j) {
+      shape.gridY = j;
+      shape.y = j * gridSize;
+    };
+
+    shape.resize = function() {
+      shape.scaleX = gridSize / 48;
+      shape.scaleY = gridSize / 48;
+    };
+
+    shape.tween = function(p_x, p_y, t) {
+    console.log(t, gridSize, shape.gridX, p_x, shape.gridY, p_y);
+      shape.x = t * (gridSize * shape.gridX) + (1-t) * p_x;
+      shape.y = t * (gridSize * shape.gridY) + (1-t) * p_y;
+      console.log(shape.x, shape.y);
+    }
+
+    shape.resize();
+
     return shape;
 }

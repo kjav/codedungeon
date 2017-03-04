@@ -12,40 +12,45 @@ var FACING_EAST = "East";
 var FACING_SOUTH = "South";
 var FACING_WEST = "West";
 
-// Time per animation in ms
-var frame_time = 500;
+// Time per graphic in ms
+// LOOKS BEST WHEN DIVISIBLE BY 40
+var frame_time = 360;
 
 function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
   
   this.moveForward = function() {
+    console.log('here: ', graphic, playerGraphic);
     switch(orientation) {
       case FACING_NORTH:
-        if (grid[graphic.x][graphic.y - 1].walkable)
+        if (grid[graphic.gridX][graphic.gridY - 1].walkable)
         {
-          graphic.y -= 1;
-          animation.gotoAndPlay("walkUp");
+          graphic.setGridY(graphic.gridY - 1);
+          graphic.gotoAndPlay("walkUp");
         }
         break;
       case FACING_EAST:
-        if (grid[graphic.x + 1][graphic.y].walkable)
+        if (grid[graphic.gridX+ 1][graphic.gridY].walkable)
         {
-          graphic.x += 1;
-          animation.gotoAndPlay("walkRight");
+          graphic.setGridX(graphic.gridX + 1);
+          graphic.gotoAndPlay("walkRight");
         }
         break;
       case FACING_SOUTH:
-        if (grid[graphic.x][graphic.y + 1].walkable)
+        console.log('here 2');
+        if (grid[graphic.gridX][graphic.gridY + 1].walkable)
         {
-          graphic.y += 1;
-          animation.gotoAndPlay("walkDown");
+          console.log('here 3: ', graphic.gridY);
+          graphic.setGridY(graphic.gridY + 1);
+          graphic.gotoAndPlay("walkDown");
+          console.log('here 4: ', graphic.gridY);
         }
         break;
       case FACING_WEST:
-        if (grid[graphic.x - 1][graphic.y].walkable)
+        if (grid[graphic.gridX - 1][graphic.gridY].walkable)
         {
-          graphic.x -= 1;
-          animation.gotoAndPlay("walkLeft");
+          graphic.setGridX(graphic.gridX - 1);
+          graphic.gotoAndPlay("walkLeft");
         }
         break;
     }
@@ -55,31 +60,32 @@ function Person(x, y, graphic) {
     //else
     switch(orientation) {
       case FACING_NORTH:
-        if (grid[graphic.x][graphic.y + 1].walkable)
+        if (grid[graphic.gridX][graphic.gridY + 1].walkable)
         {
+          graphic.setGridY(graphic.gridY + 1);
           graphic.y += 1;
-          animation.gotoAndPlay("walkDown");
+          graphic.gotoAndPlay("walkDown");
         }
         break;
       case FACING_EAST:
-        if (grid[graphic.x - 1][graphic.y].walkable)
+        if (grid[graphic.gridX - 1][graphic.gridY].walkable)
         {
-          graphic.x -= 1;
-          animation.gotoAndPlay("walkLeft");
+          graphic.setGridX(graphic.gridX - 1);
+          graphic.gotoAndPlay("walkLeft");
         }
         break;
       case FACING_SOUTH:
-        if (grid[graphic.x][graphic.y - 1].walkable)
+        if (grid[graphic.gridX][graphic.gridY - 1].walkable)
         {
-          graphic.y -= 1;
-          animation.gotoAndPlay("walkUp");
+          graphic.setGridY(graphic.gridY - 1);
+          graphic.gotoAndPlay("walkUp");
         }
         break;
       case FACING_WEST:
-        if (grid[graphic.x + 1][graphic.y].walkable)
+        if (grid[graphic.gridX + 1][graphic.gridY].walkable)
         {
-          graphic.x += 1;
-          animation.gotoAndPlay("walkRight");
+          graphic.setGridX(graphic.gridX + 1);
+          graphic.gotoAndPlay("walkRight");
         }
         break;
     }
@@ -88,19 +94,19 @@ function Person(x, y, graphic) {
     switch(orientation) {
       case FACING_NORTH:
         orientation = FACING_EAST;
-        animation.gotoAndPlay("stopRight");
+        graphic.gotoAndPlay("stopRight");
         break;
       case FACING_EAST:
         orientation = FACING_SOUTH;
-        animation.gotoAndPlay("stopDown");
+        graphic.gotoAndPlay("stopDown");
         break;
       case FACING_SOUTH:
         orientation = FACING_WEST;
-        animation.gotoAndPlay("stopLeft");
+        graphic.gotoAndPlay("stopLeft");
         break;
       case FACING_WEST:
         orientation = FACING_NORTH;
-          animation.gotoAndPlay("stopUp");
+          graphic.gotoAndPlay("stopUp");
         break;
     }
   };
@@ -108,19 +114,19 @@ function Person(x, y, graphic) {
     switch(orientation) {
       case FACING_NORTH:
         orientation = FACING_WEST;
-        animation.gotoAndPlay("stopLeft");
+        graphic.gotoAndPlay("stopLeft");
         break;
       case FACING_EAST:
         orientation = FACING_NORTH;
-          animation.gotoAndPlay("stopUp");
+          graphic.gotoAndPlay("stopUp");
         break;
       case FACING_SOUTH:
         orientation = FACING_EAST;
-        animation.gotoAndPlay("stopRight");
+        graphic.gotoAndPlay("stopRight");
         break;
       case FACING_WEST:
         orientation = FACING_SOUTH;
-        animation.gotoAndPlay("stopDown");
+        graphic.gotoAndPlay("stopDown");
         break;
     }
   };
@@ -261,7 +267,8 @@ function Commands(p) {
     var startTime = window.performance.now();
     var render_interval = setInterval(function() {
       var time = (window.performance.now() - startTime) / frame_time;
-      playerGraphic.drawShapeTween(prev_x, prev_y, time);
+      console.log(time);
+      playerGraphic.tween(prev_x, prev_y, time);
       stage.update();
     }, 16);
 
@@ -270,7 +277,7 @@ function Commands(p) {
     console.log('this: ', this, ', that: ', that);
     setTimeout(function() {
       clearInterval(render_interval);
-      playerGraphic.drawShape();
+      playerGraphic.tween(prev_x, prev_y, 1);
       stage.update();
       boundExecute()
     }, frame_time);

@@ -16,8 +16,7 @@ function init() {
     imageloader = new createjs.LoadQueue();
     imageloader.loadManifest(manifest);
     imageloader.addEventListener("complete", function() {
-    addPlayer();
-      main();
+      //addPlayer();
     });
     resizeCanvas();
     draw();
@@ -34,8 +33,8 @@ function setupGrid() {
 }
 
 function addPlayer() {
-  console.log('#########', animation);
-      playerGraphic = new PlayerGraphic(1, 1, animation);
+      playerGraphic = new PlayerGraphic(boySpriteSheet, "walkLeft");
+      playerGraphic.setGridPos(1, 1);
       stage.addChild(playerGraphic);
       // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
       stage.update();
@@ -61,10 +60,9 @@ function createGrid() {
         y += gridSize;
         x = 0;
     }
-    stage.addChild(playerGraphic);
-    playerGraphic.drawShape();
     stage.update();
-    //addPlayer();
+    addPlayer();
+      main();
 }
 
 function resizeGrid() {
