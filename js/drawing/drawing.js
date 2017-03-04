@@ -4,8 +4,12 @@ var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
 var margin = 10;
 var gridSize = gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows;
-var grid = [];
 var playerGraphic;
+
+var grid = [
+    [], [], [], [], [],
+    [], [], [], [], []
+];
 
 var stage, loader; // easeljs variables
 var manifest = [
@@ -51,6 +55,7 @@ function createGrid() {
             var textureName = getTexture(index);
             var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName), stage);
             grid.push(cell);
+            grid[i].push(j);
             x += gridSize;
             index++;
             stage.addChild(cell);
