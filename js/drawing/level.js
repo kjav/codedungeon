@@ -25,6 +25,8 @@ function setLevel(levelNumber) {
     currentMap = currentLevel["map"];
     currentState = currentLevel["state"];
     currentGoalCheck = currentLevel["checkGoal"];
+    if (currentState.Key)
+      stage.addChild(new PickupGraphic(currentState.Key.x, currentState.Key.y, keySpriteSheet));
 }
 
 // setLevel(1);
