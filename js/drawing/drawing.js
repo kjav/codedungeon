@@ -3,7 +3,7 @@ var numCols = 10;
 var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
 var margin = 10;
-var gridSize = gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows;
+var gridSize = Math.floor(gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows);
 var playerGraphic;
 
 var grid = [
@@ -111,7 +111,7 @@ function debugValues() {
 function resizeCanvas() {
     gameHeight = $('.gamePanel').height();
     gameWidth = $('.gamePanel').width();
-    gridSize = gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows;
+    gridSize = Math.floor(gameHeight < gameWidth ? (gameHeight - margin) / numCols : (gameWidth - margin) / numRows);
     stage.canvas.height  = gameHeight < gameWidth ? gameHeight : gameWidth;
     stage.canvas.width = gameHeight < gameWidth ? gameHeight : gameWidth;
 }
