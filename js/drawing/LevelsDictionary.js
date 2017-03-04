@@ -23,7 +23,7 @@ var levels = {
             console.log('GoalCoord x:' + state['GoalCoords'].x + ', GoalCoords y: ' + state['GoalCoords'].y);
             return state['GoalCoords'].x == playerGraphic.gridX && state['GoalCoords'].y == playerGraphic.gridY;
         }
-    }
+    },
     
     LevelTwo: {
         map: [
@@ -40,13 +40,17 @@ var levels = {
         ],
        state: {
             GoalCoords: {
-                x: 9,
+                x: 8,
                 y: 5
+            },
+            Key:{
+                x: 4,
+                y: 8
             }
         },
         checkGoal: function(state) {
             console.log('GoalCoord x:' + state['GoalCoords'].x + ', GoalCoords y: ' + state['GoalCoords'].y);
-            return state['GoalCoords'].x == playerGraphic.gridX && state['GoalCoords'].y == playerGraphic.gridY;
+            return state['GoalCoords'].x == playerGraphic.gridX && state['GoalCoords'].y == playerGraphic.gridY && keyTaken;
         }
     }
 };
