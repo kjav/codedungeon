@@ -20,7 +20,6 @@ function Person(x, y, graphic) {
   var orientation = FACING_SOUTH;
   
   this.moveForward = function() {
-    console.log('here: ', graphic, playerGraphic);
     switch(orientation) {
       case FACING_NORTH:
         if (grid[graphic.gridX][graphic.gridY - 1].walkable)
@@ -37,13 +36,10 @@ function Person(x, y, graphic) {
         }
         break;
       case FACING_SOUTH:
-        console.log('here 2');
         if (grid[graphic.gridX][graphic.gridY + 1].walkable)
         {
-          console.log('here 3: ', graphic.gridY);
           graphic.setGridY(graphic.gridY + 1);
           graphic.gotoAndPlay("walkDown");
-          console.log('here 4: ', graphic.gridY);
         }
         break;
       case FACING_WEST:
@@ -285,14 +281,12 @@ function Commands(p) {
     var startTime = window.performance.now();
     var render_interval = setInterval(function() {
       var time = (window.performance.now() - startTime) / frame_time;
-      console.log(time);
       playerGraphic.tween(prev_x, prev_y, time);
       stage.update();
     }, 16);
 
     var boundExecute = this.execute.bind(this);
 
-    console.log('this: ', this, ', that: ', that);
     setTimeout(function() {
       clearInterval(render_interval);
       playerGraphic.tween(prev_x, prev_y, 1);
