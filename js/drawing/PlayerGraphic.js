@@ -1,4 +1,4 @@
-function PlayerGraphic(x, y, stage) {
+function PlayerGraphic(x, y) {
     var shape = new createjs.Shape();
     shape.x = x;
     shape.y = y;

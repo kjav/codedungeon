@@ -31,7 +31,7 @@ function draw() {
 }
 
 function addPlayer() {
-    playerGraphic = new PlayerGraphic(1, 1, stage);
+    playerGraphic = new PlayerGraphic(1, 1);
     stage.addChild(playerGraphic);
     // stage.setChildIndex(playerGraphic, stage.getNumChildren()-1);
     stage.update();
@@ -56,8 +56,10 @@ function createGrid() {
     for (var i = 0; i < numRows; i++) {
         for (var j = 0; j < numCols; j++) {
             var textureName = getTexture(index);
-            var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName), stage);
+            var cell = new GridCell(x / 2, y / 2, getWalkable(index), loader.getResult(textureName));
+            // console.log(cell);
             grid[i].push(cell);
+            cell.drawShape();
             x += gridSize;
             index++;
             stage.addChild(cell);
