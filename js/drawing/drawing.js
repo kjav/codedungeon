@@ -73,6 +73,11 @@ function createGrid() {
     //addPlayer();
 }
 
+function changeTexture(x, y, textureString) {
+    grid[x][y].changeTexture(loader.getResult(textureString));
+    stage.update();
+}
+
 function getTexture(index) {
     switch (mapOne[index]) {
         case 0: // dirt

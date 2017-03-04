@@ -14,6 +14,10 @@ function GridCell(x, y, walkable, texture) {
             .drawRect(shape.x, shape.y, gridSize, gridSize)
             .endFill();
     };
+    shape.changeTexture = function(newTexture) {
+        shape.texture = newTexture;
+        shape.drawShape();
+    };
     shape.setWalkable = function(newWalkable) {
         this.walkable = newWalkable;
     };
