@@ -4,9 +4,8 @@ var playerHealth = 3;
 
 function bossHit() {
     $healthBar = $('.healthBar');
-
+    
     bossHealth -= 34;
-
     $healthBar.animate({
         width: bossHealth + '%'
     }, 1600, function() {
@@ -25,6 +24,7 @@ function loseLife() {
 }
 
 function loseBattle() {
+    reset_potions();
     currentLevelNumber = 98;
     levelCompleted();
 }

@@ -4,6 +4,7 @@ var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
 var gridSize = Math.floor(gameHeight < gameWidth ? gameHeight / numCols : gameWidth / numRows);
 var playerGraphic;
+var potionsb = [];
 var grid = [
     [], [], [], [], [],
     [], [], [], [], []
@@ -58,6 +59,8 @@ function addPlayer() {
       for (var i = 0; i < currentState.potions.length; i++) {
         var l = new PotionGraphic(potionSpriteSheet);
         l.setGridPos(currentState.potions[i].x, currentState.potions[i].y);
+        potionsb.push(l);
+console.log(potionsb);
         stage.addChild(l);
       }
     }

@@ -3,16 +3,16 @@ var potion_answer = 9;
 
 function reset_potions() {
   n_guesses = 0;
+  for (var i = 0; i < potionsb.length; i++) {
+    potionsb[i].turnOff();
+  }
+  console.log("reset");
 }
 
 function potion(number, index) {
   this.getNumber = function() {
     n_guesses++;
-
-    // Give colour to index'th potion
-    // something like this:
-    //currentState.potions[index].changeTexture(loader....);
-
+    potionsb[index].turnOn();
     return number;
   };
 }

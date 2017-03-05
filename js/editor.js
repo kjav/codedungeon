@@ -37,6 +37,7 @@ function run_code() {
       deactivateEditor();
       if (return_value) {
         // Note that n_guesses is incremented during this if statement
+          console.log(n_guesses + " ");
         if (n_guesses <= 3 && potions[return_value].getNumber() == potion_answer) {
           console.log("won round");
           bossHit();

@@ -23,8 +23,12 @@ console.log("BAH " + spriteSheet);
       shape.scaleY = gridSize / 90;
     };
 
-    shape.changeAnimation = function(id) {
-      shape.gotoAndPlay(id);
+    shape.turnOn = function() {
+      shape.gotoAndPlay("on");
+    };
+
+    shape.turnOff = function() {
+      shape.gotoAndPlay("off");
     };
 
     shape.resize();
