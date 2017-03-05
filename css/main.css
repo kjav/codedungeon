@@ -63,6 +63,7 @@ body {
 .healthBar {
     background: #c0392b;
     border-radius: 6px;
+    display: none;
     height: 100%;
     width: 100%;
 }
@@ -70,6 +71,7 @@ body {
 #bossTimer {
     bottom: 0;
     color: rgba(222, 222, 222, 0.7);
+    display: none;
     left: 0;
     font-size: 100px;
     height: 100px;
