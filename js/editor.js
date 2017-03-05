@@ -14,7 +14,7 @@ else
   editor.setValue("function level1Code(){" + "\n" + "\n" + "}");
 
 function run_code() {
-  p.reset();
+  player.reset();
 
   var user_error = false;
   try {
