@@ -188,6 +188,8 @@ function Person(x, y, graphic) {
         itemsInLevel[i].taken = true;
         itemsInLevel[i].visibility = false;
         itemsInLevel[i].visible = false;
+        grid[currentState.GoalCoords.x][currentState.GoalCoords.y].setWalkable(true);
+        grid[currentState.GoalCoords.x][currentState.GoalCoords.y].changeTexture(imageloader.getResult("walltopdoor"));
     }
   };
 
