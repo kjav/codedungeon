@@ -31,13 +31,15 @@
   <script src='js/editor.js'></script>
 
   <script src='js/main.js'></script>
-  
-	<script>
+    
+	  <script>
     var p, player;
     function main() {
       console.log(playerGraphic);
 	    p = new Person(1, 1, playerGraphic);
       player = new Commands(p);
+      //console.log(orientation);
+      p.wait();
       window.requestAnimationFrame(render);
     }
 	</script>

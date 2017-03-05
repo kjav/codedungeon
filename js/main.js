@@ -12,13 +12,13 @@ var FACING_EAST = "East";
 var FACING_SOUTH = "South";
 var FACING_WEST = "West";
 
+var orientation = FACING_SOUTH;
+
 // Time per graphic in ms
 // LOOKS BEST WHEN DIVISIBLE BY 40
 var frame_time = 360;
 
 function Person(x, y, graphic) {
-  var orientation = FACING_SOUTH;
-  
   this.moveForward = function() {
     switch(orientation) {
       case FACING_NORTH:
@@ -60,28 +60,28 @@ function Person(x, y, graphic) {
         {
           graphic.setGridY(graphic.gridY + 1);
           graphic.y += 1;
-          graphic.gotoAndPlay("walkDown");
+          graphic.gotoAndPlay("walkUp");
         }
         break;
       case FACING_EAST:
         if (grid[graphic.gridX - 1][graphic.gridY].walkable)
         {
           graphic.setGridX(graphic.gridX - 1);
-          graphic.gotoAndPlay("walkLeft");
+          graphic.gotoAndPlay("walkRight");
         }
         break;
       case FACING_SOUTH:
         if (grid[graphic.gridX][graphic.gridY - 1].walkable)
         {
           graphic.setGridY(graphic.gridY - 1);
-          graphic.gotoAndPlay("walkUp");
+          graphic.gotoAndPlay("walkDown");
         }
         break;
       case FACING_WEST:
         if (grid[graphic.gridX + 1][graphic.gridY].walkable)
         {
           graphic.setGridX(graphic.gridX + 1);
-          graphic.gotoAndPlay("walkRight");
+          graphic.gotoAndPlay("walkLeft");
         }
         break;
     }
@@ -163,23 +163,6 @@ function Person(x, y, graphic) {
         break;
     }
   };
-  
-    this.interact = function() {
-    switch(orientation) {
-      case FACING_NORTH:
-        //interact with tile infront
-        break;
-      case FACING_EAST:
-        //interact with tile infront
-        break;
-      case FACING_SOUTH:
-        //interact with tile infront
-        break;
-      case FACING_WEST:
-        //interact with tile infront
-        break;
-    }
-  };
 
   this.wait = function() {
     switch(orientation) {
@@ -196,8 +179,7 @@ function Person(x, y, graphic) {
         playerGraphic.gotoAndPlay("stopLeft");
         break;
     }
-  };
-  
+  };  
   this.pickUp = function() {
     for(i = 0; i < itemsInLevel.length; i++)
     {

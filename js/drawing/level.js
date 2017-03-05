@@ -27,6 +27,21 @@ function setLevel(levelNumber) {
     currentGoalCheck = currentLevel["checkGoal"];
     if (currentState.Key)
       stage.addChild(new PickupGraphic(currentState.Key.x, currentState.Key.y, keySpriteSheet));
+    orientation = currentState.startOrientation;
+    switch(orientation) {
+      case FACING_NORTH:
+        startAnimation = "stopUp";
+        break;
+      case FACING_EAST:
+          startAnimation = "stopEast";
+        break;
+      case FACING_SOUTH:
+        startAnimation = "stopSouth";
+        break;
+      case FACING_WEST:
+        startAnimation = "stopWest";
+        break;
+    }
 }
 
 // setLevel(1);

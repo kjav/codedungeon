@@ -13,6 +13,7 @@ var stage; // MAIN STAGE
 
 
 function nextLevel() {
+console.log("in next level");
     init();
     readMessage(currentLevel["startingText"], function() {
        $('.gameMessagePanel').delay(600).fadeOut();

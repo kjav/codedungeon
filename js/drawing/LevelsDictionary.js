@@ -22,7 +22,8 @@ var levels = {
            startCoords: {
                 x: 5,
                 y: 5
-           }
+           },
+           startOrientation: FACING_SOUTH
         },
         checkGoal: function(state) {
             console.log('GoalCoord x:' + state['GoalCoords'].x + ', GoalCoords y: ' + state['GoalCoords'].y);
@@ -56,7 +57,8 @@ var levels = {
             Key: {
                 x: 4,
                 y: 9
-            }
+            },
+           startOrientation: FACING_EAST
         },
         checkGoal: function(state) {
             console.log('GoalCoord x:' + state['GoalCoords'].x + ', GoalCoords y: ' + state['GoalCoords'].y);
