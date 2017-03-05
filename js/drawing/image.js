@@ -12,5 +12,7 @@ var manifest = [
     { src: "http://i.imgur.com/S0ZZm1Z.png", id: "wallbottomleft" },
     { src: "http://i.imgur.com/gOYZx5N.png", id: "wallbottomright" },
     { src: "http://i.imgur.com/gOYZx5N.png", id: "bluekey" },
-    { src: "http://i.imgur.com/fUbRKXf.png", id: "wallrightdoor" }
+    { src: "http://i.imgur.com/fUbRKXf.png", id: "wallrightdoor" },
+    { src: "http://i.imgur.com/hf00SRh.png", id: "walltopdoor" },
+    { src: "http://i.imgur.com/zmZKXKq.png", id: "walltopdoorclosed" }
 ];

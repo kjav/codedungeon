@@ -38,6 +38,12 @@ function getTexture(x, y) {
         case 10:
             return "wallrightdoor";
             break;
+        case 11:
+            return "walltopdoor";
+            break;
+        case 12:
+            return "walltopdoorclosed";
+            break;
     }
 }
 
