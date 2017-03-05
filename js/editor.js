@@ -38,10 +38,10 @@ function run_code() {
       if (return_value) {
         // Note that n_guesses is incremented during this if statement
         if (n_guesses <= 3 && potions[return_value].getNumber() == potion_answer) {
-          alert("won round");
+          console.log("won round");
           bossHit();
         } else {
-          alert("lost round");
+          console.log("lost round");
           loseLife();
         }
 

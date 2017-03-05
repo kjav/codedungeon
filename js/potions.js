@@ -9,7 +9,9 @@ function potion(number, index) {
   this.getNumber = function() {
     n_guesses++;
 
-    // Give colour to index'th potion 
+    // Give colour to index'th potion
+    // something like this:
+    // currentState.potions[index].changeTexture(loader....);
 
     return number;
   };
