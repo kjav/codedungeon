@@ -1,5 +1,6 @@
-function LavaGraphic(spriteSheet, startAnimation) {
-    var shape = new createjs.Sprite(spriteSheet, startAnimation);
+function LavaGraphic(spriteSheet) {
+console.log(spriteSheet);
+    var shape = new createjs.Sprite(spriteSheet, "all");
     shape.x = 0;
     shape.y = 0;
     shape.gridX = 0;

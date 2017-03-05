@@ -47,11 +47,16 @@ function setupGrid() {
 function addPlayer() {
     if (currentState.Key)
       stage.addChild(new PickupGraphic(currentState.Key.x, currentState.Key.y, keySpriteSheet));
+    if (currentState.lava) {
+      for (var i = 0; i < currentState.lava.length; i++) {
+        var l = new LavaGraphic(lavaSpriteSheet);
+        l.setGridPos(currentState.lava[i].x, currentState.lava[i].y);
+        stage.addChild(l);
+      }
+    }
     playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
     playerGraphic.setGridPos(currentState["startCoords"].x, currentState["startCoords"].y);
     stage.addChild(playerGraphic);
-    
-    stage.update();
 }
 function createGrid() {
     grid = [
@@ -74,7 +79,6 @@ function createGrid() {
         y += gridSize;
         x = 0;
     }
-    stage.update();
     addPlayer();
       main();
 }

@@ -1,6 +1,5 @@
 function changeTexture(x, y, textureString) {
     grid[x][y].changeTexture(loader.getResult(textureString));
-    stage.update();
 }
 
 function getTexture(x, y) {
