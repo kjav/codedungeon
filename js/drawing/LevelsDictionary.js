@@ -14,6 +14,7 @@ var levels = {
             [8, 5, 5, 5, 5, 5, 5, 5, 5, 9]
         ],
         startingText: "Puny mortal. How dare you enter my realm. I shall not allow you to leave.",
+        endingText: "Well well mortal.. you impress me.",
        state: {
             GoalCoords: {
                 x: 9,
@@ -45,6 +46,7 @@ var levels = {
             [8, 5, 5, 5, 5, 5, 5, 5, 5, 9]
         ],
         startingText: "TEST LEVEL 2 TEXT.",
+        endingText: "u gon die now.",
         state: {
             GoalCoords: {
                 x: 9,

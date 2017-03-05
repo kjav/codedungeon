@@ -46,6 +46,9 @@ function setLevel(levelNumber) {
 
 function levelCompleted() {
     hideNextLevelButton();
+    $('.levelOverPanel').fadeOut(400, function() {
+        $('.levelOverPanel').hide();
+    })
     currentLevelNumber++;
     setLevel(currentLevelNumber);
     nextLevel();
@@ -53,12 +56,13 @@ function levelCompleted() {
 
 levelCompleted();
 
-
-function showNextLevelButton() {
-    $('.gameMessagePanel').fadeIn(200);
-    readMessage("Well well mortal.. you impress me.", function() {
+function showLevelEndScreen() {
+    $('#levelCleared').text('Level ' + currentLevelNumber + ' cleared!');
+    $('.levelOverPanel').show().fadeIn(400);
+    readOverlayMessage(currentLevel['endingText'], function() {
         $('.nextLevel').addClass('shown').fadeTo(400, 0.9);
     });
+
 }
 
 function hideNextLevelButton() {
@@ -70,7 +74,16 @@ $('.nextLevel').on('click', function() {
 });
 
 function readMessage(message, customCallback) {
-    $(".gameMessage").typed({
+    $(".gamePanel .gameMessage").typed({
+        strings: [message],
+        contentType: 'html', // or 'text'
+        typeSpeed: 20,
+        callback: customCallback
+    });
+}
+
+function readOverlayMessage(message, customCallback) {
+    $(".levelOverPanel .gameMessage").typed({
         strings: [message],
         contentType: 'html', // or 'text'
         typeSpeed: 20,

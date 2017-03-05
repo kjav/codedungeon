@@ -20,6 +20,7 @@ body {
 .levelOverPanel {
     background: rgba(0, 0, 0, 0.6);
     color: #fff;
+    display: none;
     font-family: 'Press Start 2P', cursive;
     height: 100%;
     left: 0;
@@ -41,7 +42,35 @@ body {
     margin-top: 5%;
 }
 
+.levelOverPanel .gameMessagePanel {
+    background: rgba(200, 200, 200, 0.6);
+    bottom: initial;
+    left: 25%;
+    margin-top: 100px;
+    position: relative;
+    text-align: center;
+    width: 50%;
+}
 
+.nextLevel {
+    background-color: #eeeeee;
+    border: none;
+    border-radius: 7px;
+    color: #666;
+    cursor: pointer;
+    display: none;
+    font-size: 16px;
+    font-weight: bold;
+    height: 80px;
+    margin-top: 80px;
+    opacity: 0;
+    vertical-align: top;
+    width: 200px;
+}
+
+.nextLevel.shown {
+    display: inline-block;
+}
 
 .gamePanel {
     background: #eee;
@@ -102,24 +131,6 @@ body {
 
 .typed-cursor {
     display: none;
-}
-
-button.nextLevel {
-    display: none;
-    cursor: pointer;
-    height: 100%;
-    opacity: 0;
-    vertical-align: top;
-    width: 90px;
-    background-color: #2C2D26;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    border: none;
-}
-
-.nextLevel.shown {
-    display: table-cell;
 }
 
 .codingPanel {
