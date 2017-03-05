@@ -301,6 +301,7 @@ function Commands(p) {
         break;
       case PICKUP:
         p.pickUp();
+        playSound("pickup");
         break;
     }
 

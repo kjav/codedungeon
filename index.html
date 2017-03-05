@@ -80,28 +80,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
   <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 
-  <script>
-      createjs.Sound.registerSound("../../sounds/text-scroll.mp3", "text");
-      createjs.Sound.registerSound("../../sounds/boss.mp3", "boss");
-      createjs.Sound.addEventListener("fileload", handleFileLoad);
-      function handleFileLoad(event) {
-          // A sound has been preloaded.
-          console.log("Preloaded:", event.id, event.src);
-//          playTextSound();
+  <script src='js/soundSetup.js'></script>
 
-      }
-
-      function playTextSound() {
-          var instance = createjs.Sound;
-          instance.volume = 0.5;
-          instance.play("text");  // play using id.  Could also use full source path or event.src.
-      }
-
-//      playTextSound();
-
-
-
-  </script>
 
 
   <script src='js/drawing/LevelsDictionary.js'></script>

@@ -4,6 +4,7 @@ $('.beginGame').on('click', function() {
     });
 
     currentLevelNumber = 2;
+    createjs.Sound.stop();
     levelCompleted();
 
 

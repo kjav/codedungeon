@@ -4,7 +4,9 @@ var playerHealth = 3;
 
 function bossHit() {
     $healthBar = $('.healthBar');
-    
+
+    playSound("punch");
+
     bossHealth -= 34;
     if(bossHealth <= 34)
       bossGraphic.changeToDying();
@@ -54,6 +56,7 @@ function lostBattle(message) {
 }
 
 function winScreen() {
+    createjs.Sound.stop();
     showLevelEndScreen();
 }
 

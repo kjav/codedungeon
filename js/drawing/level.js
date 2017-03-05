@@ -58,6 +58,8 @@ function levelCompleted() {
         $('.gamePanel').prepend('<div id="bossTimer"></div>');
         createTimer();
         $('.healthBar').show();
+        playSound("boss");
+        playSound("evilLaugh");
     }
     nextLevel();
 }
@@ -74,6 +76,8 @@ function showLevelEndScreen() {
         $('#levelCleared').text('Level ' + currentLevelNumber + ' cleared!');
     }
     $('.levelOverPanel').show().fadeIn(400);
+    console.log('TRYING TO PLAY LEVEL WIN');
+    playSound("levelWin");
     readOverlayMessage(currentLevel['endingText'], function() {
         $('.nextLevel').addClass('shown').fadeTo(400, 0.9);
     });
@@ -85,6 +89,7 @@ function hideNextLevelButton() {
 }
 
 $('.nextLevel').on('click', function() {
+    createjs.Sound.stop();
     if (currentLevelNumber == 3) {
         showFinalScreen();
     } else {
@@ -112,7 +117,7 @@ function readMessage(message, customCallback) {
         typeSpeed: 20,
         callback: customCallback
     });
-    playTextSound();
+    playSound("text");
 }
 
 function readOverlayMessage(message, customCallback) {
@@ -122,7 +127,7 @@ function readOverlayMessage(message, customCallback) {
         typeSpeed: 20,
         callback: customCallback
     });
-    playTextSound();
+    playSound("text");
 }
 
 
