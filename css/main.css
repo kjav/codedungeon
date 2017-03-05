@@ -27,13 +27,13 @@ body {
 }
 
 .bossPanel {
-    background: white;
+    background: rgba(233, 233, 233, 0.9);
     border: 2px solid #e74c3c;
     border-radius: 8px;
     top: 10px;
-    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
-    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.95);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.95);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.95);
     display: table;
     height: 40px;
     left: 10%;

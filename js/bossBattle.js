@@ -12,7 +12,7 @@ function bossHit() {
     }, 1600, function() {
         if (bossHealth <= 0) {
             $('.bossPanel').fadeOut(1000);
-
+            winScreen();
         }
     });
 }
@@ -27,6 +27,10 @@ function loseLife() {
 function loseBattle() {
     currentLevelNumber = 98;
     levelCompleted();
+}
+
+function winScreen() {
+
 }
 
 function createTimer() {
@@ -67,6 +71,7 @@ function createTimer() {
 function timerWarning () {
     $('#bossTimer').css('font-size', '150px');
     $('#bossTimer').css('height', '150px');
+    $('#bossTimer').css('opacity', '0.75');
 }
 
 function addMinutes(date, minutes) {
