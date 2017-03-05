@@ -75,7 +75,7 @@ function readMessage(message, customCallback) {
     $(".gameMessage").typed({
         strings: [message],
         contentType: 'html', // or 'text'
-        typeSpeed: 25,
+        typeSpeed: 20,
         callback: customCallback
     });
 }

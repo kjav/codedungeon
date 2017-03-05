@@ -15,8 +15,10 @@ var stage; // MAIN STAGE
 function nextLevel() {
 console.log("in next level");
     init();
+    // deactivateEditor("Initialising Editor...");
     readMessage(currentLevel["startingText"], function() {
        $('.gameMessagePanel').delay(600).fadeOut();
+       // activateEditor();
     });
 }
 
