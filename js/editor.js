@@ -28,7 +28,7 @@ function run_code() {
 
   if (!user_error) {
     try {
-      return_value = level1Code();
+      return_value = eval("level" + currentLevelNumber + "Code()");
     } catch (e) {
       user_error = true;
     }
