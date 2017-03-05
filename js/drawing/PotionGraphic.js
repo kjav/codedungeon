@@ -23,11 +23,11 @@ function PotionGraphic(spriteSheet) {
     };
 
     shape.turnOn = function() {
-      shape.gotoAndPlay("on");
+      shape.gotoAndStop(1);
     };
 
     shape.turnOff = function() {
-      shape.gotoAndPlay("off");
+      shape.gotoAndStop(0);
     };
 
     shape.resize();
