@@ -14,6 +14,7 @@ function bossHit() {
     $healthBar.animate({
         width: bossHealth + '%'
     }, 1600, function() {
+        reset_potions();
         if (bossHealth <= 0) {
             $('.bossPanel').fadeOut(1000);
             bossGraphic.changeToDead();
