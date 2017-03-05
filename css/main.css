@@ -17,6 +17,32 @@ body {
     float: left;
 }
 
+.levelOverPanel {
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-family: 'Press Start 2P', cursive;
+    height: 100%;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 10001;
+}
+
+.congrats {
+    font-size: 3.5em;
+    margin-top: 7%;
+}
+
+#levelCleared {
+    font-size: 2.5em;
+    margin-top: 5%;
+}
+
+
+
 .gamePanel {
     background: #eee;
     display: inline-block;
@@ -71,6 +97,7 @@ body {
     text-align: center;
     vertical-align: middle;
     width: 100%;
+    z-index: 5000000;
 }
 
 .typed-cursor {
