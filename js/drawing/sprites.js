@@ -124,3 +124,4 @@ var potionSpriteSheet = new createjs.SpriteSheet({
 var girlSpriteSheet = new createjs.SpriteSheet(girlData);
 var boySpriteSheet = new createjs.SpriteSheet(boyData);
 var bossSpriteSheet = new createjs.SpriteSheet(wizardData);
+var explosionSpriteSheet = new createjs.SpriteSheet(explosionData);

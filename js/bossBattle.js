@@ -6,11 +6,15 @@ function bossHit() {
     $healthBar = $('.healthBar');
     
     bossHealth -= 34;
+    if(bossHealth <= 34)
+      bossGraphic.changeToDying();
+
     $healthBar.animate({
         width: bossHealth + '%'
     }, 1600, function() {
         if (bossHealth <= 0) {
             $('.bossPanel').fadeOut(1000);
+            bossGraphic.changeToDead();
             winScreen();
         }
     });
@@ -25,6 +29,7 @@ function loseLife() {
 
 function loseBattle() {
     reset_potions();
+    bossGraphic.changeToIdle();
     currentLevelNumber = 98;
     levelCompleted();
 }

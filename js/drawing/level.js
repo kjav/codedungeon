@@ -1,5 +1,5 @@
 
-var currentLevelNumber = 0;
+var currentLevelNumber = 1;
 var currentLevel;
 var currentMap;
 var currentState;

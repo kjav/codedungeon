@@ -4,6 +4,8 @@ var gameHeight  = $('.gamePanel').height();
 var gameWidth  = $('.gamePanel').width();
 var gridSize = Math.floor(gameHeight < gameWidth ? gameHeight / numCols : gameWidth / numRows);
 var playerGraphic;
+var explosionGraphic;
+var bossGraphic;
 var potionsb = [];
 var grid = [
     [], [], [], [], [],
@@ -71,6 +73,8 @@ function addPlayer() {
     playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
     playerGraphic.setGridPos(currentState["startCoords"].x, currentState["startCoords"].y);
     stage.addChild(playerGraphic);
+
+    explosionGraphic = new PlayerGraphic(boySpriteSheet, "explode");
 }
 function createGrid() {
     grid = [
