@@ -87,7 +87,7 @@ var explosionData = {
     frames: {width:333, height:333, count:10, regX: 0, regY:0, spacing:0, margin:0},
     animations: {
         explode: {
-            frames: [0,1,2,3,4,5,6,7,8,9];
+            frames: [0,1,2,3,4,5,6,7,8,9]
         },
     },
     framerate: 31
