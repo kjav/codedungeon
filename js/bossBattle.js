@@ -2,6 +2,14 @@
 var bossHealth = 100;
 var playerHealth = 3;
 
+function battleStarted() {
+    bossHealth = 100;
+    playerHealth = 3;
+
+    $healthBar = $('.healthBar');
+    $('.healthBar').css('width', '100%');
+}
+
 function bossHit() {
     $healthBar = $('.healthBar');
 
@@ -69,7 +77,7 @@ function winScreen() {
     showLevelEndScreen();
 }
 
-function createTimer() {
+function createTimer($element) {
     // Set the date we're counting down to
     var countDownDate = addMinutes(new Date(), 5);
 
@@ -89,26 +97,25 @@ function createTimer() {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         if (minutes < 1) {
-            timerWarning();
+            timerWarning($element);
         }
 
         // Display the result in the element with id="demo"
-        document.getElementById("bossTimer").innerHTML = minutes + "m " + seconds + "s ";
+        $element.text(minutes + "m " + seconds + "s ");
 
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
             $('#bossTimer').hide();
             lostBattle("Out of Time!");
-            document.getElementById("demo").innerHTML = "EXPIRED";
         }
     }, 1000);
 }
 
-function timerWarning () {
-    $('#bossTimer').css('font-size', '150px');
-    $('#bossTimer').css('height', '150px');
-    $('#bossTimer').css('opacity', '0.75');
+function timerWarning ($element) {
+    $element.css('font-size', '150px');
+    $element.css('height', '150px');
+    $element.css('opacity', '0.75');
 }
 
 function addMinutes(date, minutes) {

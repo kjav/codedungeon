@@ -10,19 +10,22 @@ function setLevel(levelNumber) {
     switch(levelNumber) {
         case 1:
             currentLevel = levels["LevelOne"];
+            $('#bossTimer').remove();
             break;
         case 2:
             currentLevel = levels["LevelTwo"];
+            $('#bossTimer').remove();
             break;
         case 3:
             currentLevel = levels["LevelThree"];
+            battleStarted();
             break;
         case 4:
             currentLevel = levels["LevelFour"];
             break;
         case 99:
             currentLevel = levels["LevelTwoComplete"];
-            $('#bossTimer').hide();
+            $('#bossTimer').remove();
             createjs.Sound.stop();
             $('.bossPanel').removeClass('visible');
             break;
@@ -48,6 +51,11 @@ function setLevel(levelNumber) {
     }
 }
 
+$('.previousLevel').on('click', function() {
+    currentLevelNumber -= 2;
+    levelCompleted();
+});
+
 // setLevel(1);
 
 function levelCompleted() {
@@ -56,14 +64,26 @@ function levelCompleted() {
         $('.levelOverPanel').hide();
     });
     currentLevelNumber++;
+    $('.stageNumber').text('Level ' + currentLevelNumber);
+    if (currentLevelNumber > 1) {
+        $('.previousLevel').addClass('enabled');
+    } else {
+        $('.previousLevel').removeClass('enabled');
+    }
     setLevel(currentLevelNumber);
     if (currentLevelNumber === 3) {
         $('#bossTimer').remove();
-        $('.gamePanel').prepend('<div id="bossTimer"></div>');
-        createTimer();
+        $element = $('<div id="bossTimer"></div>');
+        $('.gamePanel').prepend($element);
+        $('#bossTimer').off();
+        createTimer($element);
         $('.bossPanel').addClass('visible');
         playSound("boss");
         playSound("evilLaugh");
+    } else {
+        $('#bossTimer').remove();
+        createjs.Sound.stop();
+        $('.bossPanel').removeClass('visible');
     }
     nextLevel();
 }
@@ -75,7 +95,7 @@ function showLevelEndScreen() {
         currentLevelNumber = 2;
     } else if (currentLevelNumber == 3) {
         $('#levelCleared').text('BOSS BATTLE CLEARED!');
-        $('#bossTimer').hide();
+        $('#bossTimer').remove();
     } else {
         $('#levelCleared').text('Level ' + currentLevelNumber + ' cleared!');
     }
