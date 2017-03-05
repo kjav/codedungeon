@@ -259,7 +259,7 @@ function Commands(p) {
       p.getState();
 
       if (currentGoalCheck(currentState)) {
-        showNextLevelButton();
+        showLevelEndScreen();
         console.log('YAAAAAASSSHHH');
       } else {
         console.log('NOOOOOOOOOOPE');
