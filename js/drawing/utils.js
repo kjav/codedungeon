@@ -35,7 +35,9 @@ function getTexture(x, y) {
         case 9: // wallbottomright
             return "wallbottomright";
             break;
-
+        case 10:
+            return "wallrightdoor";
+            break;
     }
 }
 
@@ -70,6 +72,9 @@ function getWalkable(x, y) {
             break;
         case 9: // wallbottomright
             return false;
+            break;
+        case 10:
+            return true;
             break;
     }
 }

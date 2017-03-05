@@ -23,8 +23,8 @@ function PickupGraphic(i, j, spriteSheet, startAnimation) {
     };
 
     shape.resize = function() {
-      shape.scaleX = gridSize / 400;
-      shape.scaleY = gridSize / 400;
+      shape.scaleX = gridSize / 530;
+      shape.scaleY = gridSize / 530;
     };
 
     shape.tween = function(p_x, p_y, t) {

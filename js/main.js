@@ -261,7 +261,7 @@ function Commands(p) {
       }
 
 
-      $("#run").prop('disabled', false);
+      activateEditor();
       return;
     }
     
@@ -314,6 +314,10 @@ function Commands(p) {
       playerGraphic.tween(prev_x, prev_y, 1);
       boundExecute()
     }, frame_time);
+  };
+
+  this.reset = function() {
+    commands = [];
   };
 }
 

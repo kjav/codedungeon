@@ -14,6 +14,8 @@ else
   editor.setValue("function level1Code(){" + "\n" + "\n" + "}");
 
 function run_code() {
+  p.reset();
+
   var user_error = false;
   try {
     window.eval(editor.getValue());
@@ -31,7 +33,7 @@ function run_code() {
 
     if (!user_error) {
       player.execute();
-      $("#run").prop('disabled', true);
+      deactivateEditor();
     }
   }
 }
@@ -59,5 +61,17 @@ editor.getSession().on('change', function(e) {
 window.onunload = function(e) {
   window.localStorage.setItem('code', editor.getValue());
 };
+
+function activateEditor() {
+  $("#run").prop("disabled", false);
+  $("#editor").removeClass("disabled");
+  editor.setReadOnly(false);
+}
+
+function deactivateEditor() {
+  $("#run").prop("disabled", true);
+  $("#editor").addClass("disabled");
+  editor.setReadOnly(true);
+}
 
 $("#run").click(run_code);
