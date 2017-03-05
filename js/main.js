@@ -219,7 +219,7 @@ function pushObject(x, y) {
 }
 
 function Commands(p) {
-  var commands = [];
+  var commands;
   var p = p;
  
   this.moveForward = function() {
@@ -319,6 +319,8 @@ function Commands(p) {
   this.reset = function() {
     commands = [];
   };
+
+  this.reset();
 }
 
 function render() {

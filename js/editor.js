@@ -32,8 +32,8 @@ function run_code() {
     }
 
     if (!user_error) {
-      player.execute();
       deactivateEditor();
+      player.execute();
     }
   }
 }
@@ -64,9 +64,9 @@ window.onunload = function(e) {
 
 function activateEditor() {
   $("#run").prop("disabled", false);
-    $(".editorOverlay").fadeOut(400, function() {
-      $(this).removeClass('active');
-    })
+  $(".editorOverlay").fadeOut(400, function() {
+    $(this).removeClass('active');
+  });
   editor.setReadOnly(false);
 }
 
