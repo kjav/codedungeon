@@ -77,13 +77,18 @@ body {
     display: none;
 }
 
-.nextLevel {
+button.nextLevel {
     display: none;
     cursor: pointer;
     height: 100%;
     opacity: 0;
     vertical-align: top;
     width: 90px;
+    background-color: #2C2D26;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border: none;
 }
 
 .nextLevel.shown {
