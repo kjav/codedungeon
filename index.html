@@ -45,20 +45,23 @@
     <button class="nextLevel">Continue</button>
   </div>
 
-  <!--<div class="splashscreen">-->
-    <!--<h1 class="splashJumboWelcome"></h1>-->
-    <!--<h1 class="codeDungeonHeader"></h1>-->
-  <!--</div>-->
+  <div class="splashscreen">
+    <h1 class="splashJumboWelcome">WELCOME TO</h1>
+    <div id="titleText">CODE DUNGEON</div>
+    <button class="beginGame">PLAY</button>
+  </div>
 
   </body>
 
+
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
- 
+
   <!-- Script for code editor -->
   <script src='lib/ace.js'></script>
   <script src='js/editor.js'></script>
 
   <script src='js/main.js'></script>
+  <script src='js/splash.js'></script>
   <script src='js/rainbowText.js'></script>
 
 
@@ -77,6 +80,31 @@
   <!-- Scripts for game panel -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/1.1.4/typed.min.js"></script>
   <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+
+  <script>
+      createjs.Sound.registerSound("../../sounds/text-scroll.mp3", "text");
+      createjs.Sound.registerSound("../../sounds/boss.mp3", "boss");
+      createjs.Sound.addEventListener("fileload", handleFileLoad);
+      function handleFileLoad(event) {
+          // A sound has been preloaded.
+          console.log("Preloaded:", event.id, event.src);
+//          playTextSound();
+
+      }
+
+      function playTextSound() {
+          var instance = createjs.Sound;
+          instance.volume = 0.5;
+          instance.play("text");  // play using id.  Could also use full source path or event.src.
+      }
+
+//      playTextSound();
+
+
+
+  </script>
+
+
   <script src='js/drawing/LevelsDictionary.js'></script>
   <script src='js/drawing/utils.js'></script>
   <script src='js/drawing/image.js'></script>
