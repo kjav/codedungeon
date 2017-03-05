@@ -16,8 +16,8 @@ var levels = {
         startingText: "Puny mortal. How dare you enter my realm. I shall not allow you to leave.",
        state: {
             GoalCoords: {
-                x: 3,
-                y: 2
+                x: 9,
+                y: 5
             },
            startCoords: {
                 x: 5,
