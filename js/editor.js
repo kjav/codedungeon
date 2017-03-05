@@ -64,13 +64,15 @@ window.onunload = function(e) {
 
 function activateEditor() {
   $("#run").prop("disabled", false);
-  $("#editor").removeClass("disabled");
+    $(".editorOverlay").fadeOut(400, function() {
+      $(this).removeClass('active');
+    })
   editor.setReadOnly(false);
 }
 
 function deactivateEditor() {
   $("#run").prop("disabled", true);
-  $("#editor").addClass("disabled");
+    $(".editorOverlay").addClass('active').fadeTo(400, 0.7);
   editor.setReadOnly(true);
 }
 
