@@ -121,6 +121,10 @@ var levels = {
                x: 5,
                y: 8
            },
+           boss: {
+               x: 3,
+               y: 1
+           },
            lava: [
              { x: 0, y: 0 },
              { x: 1, y: 0 },

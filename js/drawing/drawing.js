@@ -45,7 +45,7 @@ function setupGrid() {
     });
 }
 
-function addPlayer() {
+function addPlayer() {  
     if (currentState.Key)
       stage.addChild(new PickupGraphic(currentState.Key.x, currentState.Key.y, keySpriteSheet));
     if (currentState.lava) {
@@ -60,10 +60,14 @@ function addPlayer() {
         var l = new PotionGraphic(potionSpriteSheet);
         l.setGridPos(currentState.potions[i].x, currentState.potions[i].y);
         potionsb.push(l);
-console.log(potionsb);
         stage.addChild(l);
       }
     }
+    if (currentState.boss){
+    bossGraphic = new PlayerGraphic(bossSpriteSheet, "idle");
+    bossGraphic.setGridPos(currentState["boss"].x, currentState["boss"].y);
+    stage.addChild(bossGraphic);
+    }   
     playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
     playerGraphic.setGridPos(currentState["startCoords"].x, currentState["startCoords"].y);
     stage.addChild(playerGraphic);

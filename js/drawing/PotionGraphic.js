@@ -1,5 +1,4 @@
 function PotionGraphic(spriteSheet) {
-console.log("BAH " + spriteSheet);
     var shape = new createjs.Sprite(spriteSheet, "off");
     shape.x = 0;
     shape.y = 0;

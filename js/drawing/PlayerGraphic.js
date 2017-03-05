@@ -27,6 +27,19 @@ function PlayerGraphic(spriteSheet, startAnimation) {
       shape.y = t * (gridSize * shape.gridY) + (1-t) * p_y;
     }
 
+    shape.changeToIdle = function() {
+      shape.gotoAndPlay("idle");
+    };
+    shape.changeToJump = function() {
+      shape.gotoAndPlay("jump");
+    };
+    shape.changeToDying = function() {
+      shape.gotoAndPlay("hurt");
+    };
+    shape.changeToDead = function() {
+      shape.gotoAndPlay("die");
+    };
+
     shape.resize();
 
     return shape;
