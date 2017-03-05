@@ -45,10 +45,13 @@ function setupGrid() {
 }
 
 function addPlayer() {
-      playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
-      playerGraphic.setGridPos(currentState["startCoords"].x, currentState["startCoords"].y);
-      stage.addChild(playerGraphic);
-      stage.update();
+    if (currentState.Key)
+      stage.addChild(new PickupGraphic(currentState.Key.x, currentState.Key.y, keySpriteSheet));
+    playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
+    playerGraphic.setGridPos(currentState["startCoords"].x, currentState["startCoords"].y);
+    stage.addChild(playerGraphic);
+    
+    stage.update();
 }
 function createGrid() {
     grid = [

@@ -186,6 +186,8 @@ function Person(x, y, graphic) {
     {
       if ((itemsInLevel[i].gridX == graphic.gridX) && (itemsInLevel[i].gridY == graphic.gridY))
         itemsInLevel[i].taken = true;
+        itemsInLevel[i].visibility = false;
+        itemsInLevel[i].visible = false;
     }
   };
 
