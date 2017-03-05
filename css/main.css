@@ -87,7 +87,7 @@ body {
     -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.95);
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.95);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.95);
-    display: table;
+    display: none;
     height: 40px;
     left: 10%;
     position: absolute;
@@ -95,10 +95,13 @@ body {
     width: 80%;
 }
 
+.bossPanel.visible {
+    display: table;
+}
+
 .healthBar {
     background: #c0392b;
     border-radius: 6px;
-    display: none;
     height: 100%;
     width: 100%;
 }

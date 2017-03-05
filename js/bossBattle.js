@@ -26,9 +26,6 @@ function bossHit() {
 function loseLife() {
     playerHealth--;
 
-
-
-
     if (playerHealth <= 0) {
         lostBattle("You guessed incorrectly too many times!");
     } else {

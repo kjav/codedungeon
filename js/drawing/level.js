@@ -24,7 +24,7 @@ function setLevel(levelNumber) {
             currentLevel = levels["LevelTwoComplete"];
             $('#bossTimer').hide();
             createjs.Sound.stop();
-            $('.healthBar').hide();
+            $('.bossPanel').removeClass('visible');
             break;
 
     }
@@ -61,7 +61,7 @@ function levelCompleted() {
         $('#bossTimer').remove();
         $('.gamePanel').prepend('<div id="bossTimer"></div>');
         createTimer();
-        $('.healthBar').show();
+        $('.bossPanel').addClass('visible');
         playSound("boss");
         playSound("evilLaugh");
     }
