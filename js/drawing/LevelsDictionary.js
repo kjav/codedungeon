@@ -90,7 +90,7 @@ var levels = {
                 x: 6,
                 y: 1
             },
-            startOrientation: FACING_EAST
+            startOrientation: FACING_NORTH
         },
         checkGoal: function(state) {
             return state['GoalCoords'].x == playerGraphic.gridX && state['GoalCoords'].y == playerGraphic.gridY;
@@ -110,8 +110,8 @@ var levels = {
             [2, 1, 1, 1, 0, 0, 1, 1, 1, 3],
             [8, 5, 5, 5, 0, 0, 5, 5, 5, 9]
         ],
-        startingText: "TEST LEVEL 2 TEXT.",
-        endingText: "u gon die now.",
+        startingText: "OH! SO YOU'VE COME TO CHALLENGE ME!?",
+        endingText: "*cough* YOU HAVEN'T SEEN THE LAST OF ME!.",
         state: {
             GoalCoords: {
                 x: 0,
