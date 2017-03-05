@@ -196,7 +196,7 @@ var levels = {
            startOrientation: FACING_NORTH
         },
         checkGoal: function(state) {
-            return bossBeaten; // change to win settings
+            return false;
         }
     }
 
