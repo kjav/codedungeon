@@ -56,13 +56,13 @@ var levels = {
            },
             Key: {
                 x: 4,
-                y: 9
+                y: 8
             },
            startOrientation: FACING_EAST
         },
         checkGoal: function(state) {
             console.log('GoalCoord x:' + state['GoalCoords'].x + ', GoalCoords y: ' + state['GoalCoords'].y);
-            return state['GoalCoords'].x == playerGraphic.gridX && state['GoalCoords'].y == playerGraphic.gridY && keyTaken;
+            return state['GoalCoords'].x == playerGraphic.gridX && state['GoalCoords'].y == playerGraphic.gridY && ((itemsInLevel.length > 0) ? itemsInLevel[0].taken : true);
         }
     }
 };

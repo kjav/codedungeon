@@ -6,6 +6,7 @@ var TURN_LEFT = 4;
 var PUSH_OBJECT = 5;
 var INTERACT = 6;
 var WAIT = 7;
+var PICKUP = 8;
 
 var FACING_NORTH = "North";
 var FACING_EAST = "East";

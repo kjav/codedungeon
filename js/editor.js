@@ -70,8 +70,15 @@ function activateEditor() {
   editor.setReadOnly(false);
 }
 
-function deactivateEditor() {
-  $("#run").prop("disabled", true);
+function deactivateEditor(message) {
+    if (message) {
+      $('.editorOverlayText').text(message);
+    } else {
+        $('.editorOverlayText').text('Executing Code...');
+    }
+
+    $("#run").prop("disabled", true);
+
     $(".editorOverlay").addClass('active').fadeTo(400, 0.7);
   editor.setReadOnly(true);
 }
