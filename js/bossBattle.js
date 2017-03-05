@@ -48,7 +48,7 @@ function createTimer() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        if (minutes < 4) {
+        if (minutes < 1) {
             timerWarning();
         }
 
