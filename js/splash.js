@@ -3,7 +3,7 @@ $('.beginGame').on('click', function() {
        $(this).hide();
     });
 
-    currentLevelNumber = 0;
+    currentLevelNumber = 2;
     levelCompleted();
 
 

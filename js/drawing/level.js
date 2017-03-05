@@ -55,7 +55,7 @@ function levelCompleted() {
     setLevel(currentLevelNumber);
     if (currentLevelNumber === 3) {
         $('#bossTimer').remove();
-        $('gamePanel').prepend('<div id="bossTimer"></div>');
+        $('.gamePanel').prepend('<div id="bossTimer"></div>');
         createTimer();
         $('.healthBar').show();
     }

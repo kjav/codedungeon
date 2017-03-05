@@ -71,7 +71,6 @@ body {
 #bossTimer {
     bottom: 0;
     color: rgba(222, 222, 222, 0.7);
-    display: none;
     left: 0;
     font-size: 100px;
     height: 100px;
