@@ -54,7 +54,10 @@ function levelCompleted() {
     currentLevelNumber++;
     setLevel(currentLevelNumber);
     if (currentLevelNumber === 3) {
+        $('#bossTimer').remove();
+        $('gamePanel').prepend('<div id="bossTimer"></div>');
         createTimer();
+        $('.healthBar').show();
     }
     nextLevel();
 }
@@ -102,6 +105,7 @@ function showFinalScreen() {
 }
 
 function readMessage(message, customCallback) {
+    $('.gamePanel .gameMessagePanel').show();
     $(".gamePanel .gameMessage").typed({
         strings: [message],
         contentType: 'html', // or 'text'
