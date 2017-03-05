@@ -25,8 +25,19 @@ function bossHit() {
 
 function loseLife() {
     playerHealth--;
+
+
+
+
     if (playerHealth <= 0) {
         lostBattle("You guessed incorrectly too many times!");
+    } else {
+        $('.messageOverlay').addClass('visible').find('h2').text(playerHealth + " chances remaining!");
+
+        window.setTimeout(function() {
+            console.log('trying to remove overlay class');
+            $('.messageOverlay').removeClass('visible');
+        }, 3000);
     }
 }
 

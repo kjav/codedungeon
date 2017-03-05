@@ -22,6 +22,10 @@ function setLevel(levelNumber) {
             break;
         case 99:
             currentLevel = levels["LevelTwoComplete"];
+            $('#bossTimer').hide();
+            createjs.Sound.stop();
+            $('.healthBar').hide();
+            break;
 
     }
     currentMap = currentLevel["map"];
@@ -103,6 +107,8 @@ function showFinalScreen() {
     $('#levelCleared').text('PLEASE DONATE $1337')
     $('.nextLevel').hide();
     $('.levelOverPanel').css('background', 'rgba(0, 0, 0, 0.8)');
+    createjs.Sound.stop();
+    playSound("ending");
     readOverlayMessage("I'll be back.", function() {
         $('.levelOverPanel .speakerImage').attr('src', './img/arnold.png');
 

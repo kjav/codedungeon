@@ -5,6 +5,7 @@
   createjs.Sound.registerSound("../../sounds/pickup.mp3", "pickup");
   createjs.Sound.registerSound("../../sounds/evilLaugh.mp3", "evilLaugh");
   createjs.Sound.registerSound("../../sounds/punch.mp3", "punch");
+  createjs.Sound.registerSound("../../sounds/ending.mp3", "ending");
 
 
   createjs.Sound.addEventListener("fileload", handleFileLoad);
