@@ -81,5 +81,11 @@ function getWalkable(x, y) {
         case 10:
             return true;
             break;
+        case 11:
+            return true;
+            break;
+        case 12:
+            return false;
+            break;
     }
 }

@@ -20,6 +20,8 @@ function setLevel(levelNumber) {
         case 4:
             currentLevel = levels["LevelFour"];
             break;
+        case 99:
+            currentLevel = levels["LevelTwoComplete"];
 
     }
     currentMap = currentLevel["map"];
@@ -57,6 +59,9 @@ function levelCompleted() {
 levelCompleted();
 
 function showLevelEndScreen() {
+    if (currentLevelNumber == 99) {
+        currentLevelNumber = 2;
+    }
     $('#levelCleared').text('Level ' + currentLevelNumber + ' cleared!');
     $('.levelOverPanel').show().fadeIn(400);
     readOverlayMessage(currentLevel['endingText'], function() {
