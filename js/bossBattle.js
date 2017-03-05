@@ -19,7 +19,7 @@ function bossHit() {
 function loseLife() {
     playerHealth--;
     if (playerHealth <= 0) {
-        loseBattle();
+        lostBattle("You guessed incorrectly too many times!");
     }
 }
 
@@ -29,11 +29,11 @@ function loseBattle() {
     levelCompleted();
 }
 
-function timesUp() {
+function lostBattle(message) {
     // FADE IN OVERLAY
     $('.levelOverPanel').fadeIn(1200);
     $('.levelOverPanel').addClass('fail');
-    $('.levelOverPanel').find('.congrats').addClass('outOfTime').text('Out of Time!');
+    $('.levelOverPanel').find('.congrats').addClass('outOfTime').text(message);
 
 
     window.setTimeout(function (){
@@ -49,7 +49,7 @@ function timesUp() {
 }
 
 function winScreen() {
-
+    showLevelEndScreen();
 }
 
 function createTimer() {
@@ -82,7 +82,7 @@ function createTimer() {
         if (distance < 0) {
             clearInterval(x);
             $('#bossTimer').hide();
-            timesUp();
+            lostBattle("Out of Time!");
             document.getElementById("demo").innerHTML = "EXPIRED";
         }
     }, 1000);
@@ -98,4 +98,3 @@ function addMinutes(date, minutes) {
     return new Date(date.getTime() + minutes*60000);
 }
 
-createTimer();

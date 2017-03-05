@@ -11,11 +11,14 @@ body {
 }
 
 .splashscreen {
-    background: #999;
+    background-image: url('http://i307.photobucket.com/albums/nn288/el-ementrix/handpainted_wall2.jpg');
+    color: #e1e1e1;
+    font-family: 'Press Start 2P', cursive;
     height: 100%;
     left: 0;
     margin: auto;
     position: absolute;
+    text-align: center;
     top: 0;
     width: 100%;
     z-index: 9999999999;
@@ -23,7 +26,22 @@ body {
 
 .splashJumboWelcome {
     font-size: 80px;
-    position: absolute
+    margin-top: 8%;
+}
+
+#titleText {
+    font-size: 120px;
+    margin-top: 6%;
+}
+
+.beginGame {
+    background: #e1e1e1;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 3em;
+    height: 100px;
+    margin-top: 10%;
+    width: 460px;
 }
 
 .bossPanel {

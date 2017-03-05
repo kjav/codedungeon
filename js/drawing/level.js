@@ -1,5 +1,5 @@
 
-var currentLevelNumber = 2;
+var currentLevelNumber = 0;
 var currentLevel;
 var currentMap;
 var currentState;
@@ -50,9 +50,12 @@ function levelCompleted() {
     hideNextLevelButton();
     $('.levelOverPanel').fadeOut(400, function() {
         $('.levelOverPanel').hide();
-    })
+    });
     currentLevelNumber++;
     setLevel(currentLevelNumber);
+    if (currentLevelNumber === 3) {
+        createTimer();
+    }
     nextLevel();
 }
 
@@ -61,8 +64,12 @@ levelCompleted();
 function showLevelEndScreen() {
     if (currentLevelNumber == 99) {
         currentLevelNumber = 2;
+    } else if (currentLevelNumber == 3) {
+        $('#levelCleared').text('BOSS BATTLE CLEARED!');
+        $('#bossTimer').hide();
+    } else {
+        $('#levelCleared').text('Level ' + currentLevelNumber + ' cleared!');
     }
-    $('#levelCleared').text('Level ' + currentLevelNumber + ' cleared!');
     $('.levelOverPanel').show().fadeIn(400);
     readOverlayMessage(currentLevel['endingText'], function() {
         $('.nextLevel').addClass('shown').fadeTo(400, 0.9);
@@ -75,8 +82,24 @@ function hideNextLevelButton() {
 }
 
 $('.nextLevel').on('click', function() {
-   levelCompleted();
+    if (currentLevelNumber == 3) {
+        showFinalScreen();
+    } else {
+        levelCompleted();
+    }
+
 });
+
+function showFinalScreen() {
+    $('.congrats').text('THANK YOU FOR PLAYING!');
+    $('#levelCleared').text('PLEASE DONATE $1337')
+    $('.nextLevel').hide();
+    $('.levelOverPanel').css('background', 'rgba(0, 0, 0, 0.8)');
+    readOverlayMessage("I'll be back.", function() {
+        $('.levelOverPanel .speakerImage').attr('src', './img/arnold.png');
+
+    });
+}
 
 function readMessage(message, customCallback) {
     $(".gamePanel .gameMessage").typed({
@@ -85,6 +108,7 @@ function readMessage(message, customCallback) {
         typeSpeed: 20,
         callback: customCallback
     });
+    playTextSound();
 }
 
 function readOverlayMessage(message, customCallback) {
@@ -94,13 +118,7 @@ function readOverlayMessage(message, customCallback) {
         typeSpeed: 20,
         callback: customCallback
     });
+    playTextSound();
 }
 
-// createjs.Sound.addEventListener("fileload";
-createjs.Sound.registerSound("../../sounds/text-scroll.mp3", "text");
 
-function playTextSound() {
-    var instance = createjs.Sound;
-    instance.volume = 0.2;
-    instance.play("text");  // play using id.  Could also use full source path or event.src.
-}

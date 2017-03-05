@@ -18,7 +18,7 @@ console.log("in next level");
     init();
     // deactivateEditor("Initialising Editor...");
     readMessage(currentLevel["startingText"], function() {
-       $('.gamePanel .gameMessagePanel').delay(600).fadeOut();
+       $('.gamePanel .gameMessagePanel').delay(1500).fadeOut();
        // activateEditor();
     });
 }

@@ -13,7 +13,7 @@ var levels = {
             [2, 0, 1, 0, 0, 1, 0, 0, 1, 3],
             [8, 5, 5, 5, 5, 5, 5, 5, 5, 9]
         ],
-        startingText: "Puny mortal. How dare you enter my realm. I shall not allow you to leave.",
+        startingText: "MORTAL - How dare you enter my realm.",
         endingText: "Well well mortal.. you impress me.",
        state: {
             GoalCoords: {
@@ -44,8 +44,8 @@ var levels = {
             [2, 0, 0, 0, 0, 0, 0, 0, 0, 3],
             [8, 5, 5, 5, 5, 5, 5, 5, 5, 9]
         ],
-        startingText: "TEST LEVEL 2 TEXT.",
-        endingText: "u gon die now.",
+        startingText: "Hah! You think you'll be able to reach me?",
+        endingText: "I'll make sure you regret crossing me.",
         state: {
             GoalCoords: {
                 x: 6,
@@ -111,7 +111,8 @@ var levels = {
             [8, 5, 5, 5, 0, 0, 5, 5, 5, 9]
         ],
         startingText: "OH! SO YOU'VE COME TO CHALLENGE ME!?",
-        endingText: "*cough* YOU HAVEN'T SEEN THE LAST OF ME!.",
+        endingText: "*cough* YOU HAVEN'T SEEN THE LAST OF ME!",
+        music: '../../sounds/boss.mp3',
         state: {
             GoalCoords: {
                 x: 0,
