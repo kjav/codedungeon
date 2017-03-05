@@ -54,6 +54,13 @@ function addPlayer() {
         stage.addChild(l);
       }
     }
+    if (currentState.potions) {
+      for (var i = 0; i < currentState.potions.length; i++) {
+        var l = new PotionGraphic(potionSpriteSheet);
+        l.setGridPos(currentState.potions[i].x, currentState.potions[i].y);
+        stage.addChild(l);
+      }
+    }
     playerGraphic = new PlayerGraphic(boySpriteSheet, "stopDown");
     playerGraphic.setGridPos(currentState["startCoords"].x, currentState["startCoords"].y);
     stage.addChild(playerGraphic);

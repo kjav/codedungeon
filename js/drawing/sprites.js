@@ -108,5 +108,18 @@ var lavaSpriteSheet = new createjs.SpriteSheet({
   }
 });
 
+var potionSpriteSheet = new createjs.SpriteSheet({
+  images: ["http://i.imgur.com/zGFMzx2.png"],
+  frames: { width: 75, height: 75, count: 2, regX: 0, regY: 0, spacing: 0, margin: 0 },
+  animations: {
+    on: {
+      frames: [1]
+},
+    off: {
+      frames: [0]
+    }
+  }
+});
+
 var girlSpriteSheet = new createjs.SpriteSheet(girlData);
 var boySpriteSheet = new createjs.SpriteSheet(boyData);
