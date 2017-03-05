@@ -30,6 +30,26 @@ var girlData = {
     framerate: 31
 };
 
+var wizardData = {
+    images: ["http://i.imgur.com/6DiSdeu.png"],
+    frames: {width:125, height:125, count:16, regX: 0, regY:0, spacing:0, margin:0},
+    animations: {
+        idle: {
+            frames: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+        },
+        jump: {
+            frames: [4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7]
+        },
+        die: {
+            frames: [8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11]
+        },
+        hurt: {
+            frames: [12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 13, 13, 13, 13, 13, 14, 14, 14, 14, 14, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15]
+        }
+    },
+    framerate: 31
+};
+
 var boyData = {
     images: ["http://i.imgur.com/9bb4qHJ.png"],
     frames: {width:48, height:48, count:16, regX: 0, regY:0, spacing:0, margin:0},
@@ -59,7 +79,18 @@ var boyData = {
             frames: [0]
         }
     },
-    framerate: 5
+    framerate: 31
+};
+
+var explosionData = {
+    images: ["http://i.imgur.com/V0BbmO6.png"],
+    frames: {width:333, height:333, count:10, regX: 0, regY:0, spacing:0, margin:0},
+    animations: {
+        explode: {
+            frames: [0,1,2,3,4,5,6,7,8,9];
+        },
+    },
+    framerate: 31
 };
 
 var keySpriteSheet = new createjs.SpriteSheet({
