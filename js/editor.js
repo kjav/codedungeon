@@ -47,7 +47,7 @@ function run_code() {
         }
 
         // Reset potions game
-        reset_potions();
+        //reset_potions();
       }
       player.execute();
     }

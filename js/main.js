@@ -21,6 +21,8 @@ var frame_time = 360;
 
 function Person(x, y, graphic) {
   this.moveForward = function() {
+    if (currentLevel.movement_locked)
+      return;
     switch(orientation) {
       case FACING_NORTH:
         if (grid[graphic.gridX][graphic.gridY - 1].walkable)
@@ -53,8 +55,8 @@ function Person(x, y, graphic) {
     }
   };
   this.moveBackward = function() {
-    //if tile blocked logic here
-    //else
+    if (currentLevel.movement_locked)
+      return;
     switch(orientation) {
       case FACING_NORTH:
         if (grid[graphic.gridX][graphic.gridY + 1].walkable)
