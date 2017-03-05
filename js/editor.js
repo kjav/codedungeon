@@ -16,6 +16,8 @@ else
 function run_code() {
   player.reset();
 
+  var return_value;
+
   var user_error = false;
   try {
     window.eval(editor.getValue());
@@ -26,13 +28,26 @@ function run_code() {
 
   if (!user_error) {
     try {
-      level1Code();
+      return_value = level1Code();
     } catch (e) {
       user_error = true;
     }
 
     if (!user_error) {
       deactivateEditor();
+      if (return_value) {
+        // Note that n_guesses is incremented during this if statement
+        if (n_guesses <= 3 && potions[return_value].getNumber() == potion_answer) {
+          alert("won round");
+          bossHit();
+        } else {
+          alert("lost round");
+          loseLife();
+        }
+
+        // Reset potions game
+        reset_potions();
+      }
       player.execute();
     }
   }
