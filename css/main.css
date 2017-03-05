@@ -49,6 +49,20 @@ body {
     width: 100%;
 }
 
+#bossTimer {
+    bottom: 0;
+    color: rgba(222, 222, 222, 0.7);
+    left: 0;
+    font-size: 100px;
+    height: 100px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 99999;
+}
+
 .mainPanel {
     display: inline-block;
     height: 100%;
