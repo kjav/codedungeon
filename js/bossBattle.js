@@ -54,7 +54,7 @@ function winScreen() {
 
 function createTimer() {
     // Set the date we're counting down to
-    var countDownDate = addMinutes(new Date(), 0.1);
+    var countDownDate = addMinutes(new Date(), 5);
 
 // Update the count down every 1 second
     var x = setInterval(function() {
