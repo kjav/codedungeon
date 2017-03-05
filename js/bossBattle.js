@@ -20,10 +20,13 @@ function bossHit() {
 function loseLife() {
     playerHealth--;
     if (playerHealth <= 0) {
-        currentLevelNumber = 98;
-        levelCompleted();
+        loseBattle();
     }
-    // lose heart
+}
+
+function loseBattle() {
+    currentLevelNumber = 98;
+    levelCompleted();
 }
 
 function createTimer() {
@@ -45,16 +48,25 @@ function createTimer() {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+        if (minutes < 4) {
+            timerWarning();
+        }
+
         // Display the result in the element with id="demo"
-        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-            + minutes + "m " + seconds + "s ";
+        document.getElementById("bossTimer").innerHTML = minutes + "m " + seconds + "s ";
 
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
+            loseBattle();
             document.getElementById("demo").innerHTML = "EXPIRED";
         }
     }, 1000);
+}
+
+function timerWarning () {
+    $('#bossTimer').css('font-size', '150px');
+    $('#bossTimer').css('height', '150px');
 }
 
 function addMinutes(date, minutes) {
