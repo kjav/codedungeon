@@ -11,7 +11,7 @@ function potion(number, index) {
 
     // Give colour to index'th potion
     // something like this:
-    // currentState.potions[index].changeTexture(loader....);
+    //currentState.potions[index].changeTexture(loader....);
 
     return number;
   };
