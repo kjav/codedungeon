@@ -85,9 +85,21 @@ body {
     z-index: 10001;
 }
 
+.levelOverPanel.fail #levelCleared {
+    display: none;
+}
+
+.levelOverPanel.fail .gameMessagePanel {
+    display: none;
+}
+
 .congrats {
     font-size: 3.5em;
     margin-top: 7%;
+}
+
+.congrats.outOfTime {
+    margin-top: 30%;
 }
 
 #levelCleared {

@@ -29,6 +29,25 @@ function loseBattle() {
     levelCompleted();
 }
 
+function timesUp() {
+    // FADE IN OVERLAY
+    $('.levelOverPanel').fadeIn(1200);
+    $('.levelOverPanel').addClass('fail');
+    $('.levelOverPanel').find('.congrats').addClass('outOfTime').text('Out of Time!');
+
+
+    window.setTimeout(function (){
+        loseBattle();
+        window.setTimeout(function() {
+            $('.levelOverPanel')
+                .removeClass('fail')
+                .find('.congrats')
+                .removeClass('outOfTime')
+                .text('Congratulations!');
+        }, 2000);
+    }, 5000);
+}
+
 function winScreen() {
 
 }
@@ -62,7 +81,8 @@ function createTimer() {
         // If the count down is finished, write some text
         if (distance < 0) {
             clearInterval(x);
-            loseBattle();
+            $('#bossTimer').hide();
+            timesUp();
             document.getElementById("demo").innerHTML = "EXPIRED";
         }
     }, 1000);
